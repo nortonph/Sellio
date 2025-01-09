@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('./db.js');
 
 const categorySchema = new mongoose.Schema({
   name: { type: String, required: true },

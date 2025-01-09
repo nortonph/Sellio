@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('./db.js');
 
 const messageSchema = new mongoose.Schema({
   sender: {

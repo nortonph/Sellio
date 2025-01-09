@@ -1,11 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('./db.js');
 
 const userSchema = new mongoose.Schema({
-  userName: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  city: String,
-  country: String,
+  isAdmin: { type: Boolean, default: false },
   itemsBought: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
   itemsSold: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
 });
