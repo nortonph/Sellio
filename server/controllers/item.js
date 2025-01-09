@@ -13,6 +13,8 @@ const getOne = async (req, res) => {
   }
 };
 
+
+
 const getAll = async (req, res) => {
   try {
     const items = await Item.find();
@@ -23,6 +25,7 @@ const getAll = async (req, res) => {
   }
 };
 
+const getFilteredItems = async (req, res) => {}
 const addItem = async (req, res) => {}
 const updateItem = async (req, res) => {}
 const uploadMedia = async (req, res) => {}
@@ -30,7 +33,6 @@ const getSoldItems = async (req, res) => {}
 const getboughtItems = async (req, res) => {}
 const getItemsWaitingForSell = async (req, res) => {}
 const deleteItem = async (req, res) => {}
-
 const getAllItems = async (req, res) => {}
 
-module.exports = { getAll, getOne , addItem, updateItem, uploadMedia, getSoldItems, getboughtItems, getItemsWaitingForSell, deleteItem, getAllItems };
+module.exports = { getAll, getOne , addItem, updateItem, uploadMedia, getSoldItems, getboughtItems, getItemsWaitingForSell, deleteItem, getAllItems, getFilteredItems };
