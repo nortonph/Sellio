@@ -17,6 +17,7 @@ const loginAndRegisterLimiter = rateLimit({
 router.get('/items', itemController.getItems);
 router.get('/item/:itemId', itemController.getItem);
 router.get('/items', itemController.getFilteredItems);
+router.get('/admin/categories', categoryController.getCategories);
 
 /******* users *******/
 /*********************/
