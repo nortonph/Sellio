@@ -12,6 +12,7 @@ const itemSchema = new mongoose.Schema({
   datePosted: { type: Date, default: Date.now },
   isBanner  : {type:Boolean, default: false},
   isSold : {type:Boolean, default: false},
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 });
 
 module.exports = mongoose.model("Item", itemSchema);

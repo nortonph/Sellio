@@ -57,6 +57,4 @@ const profile = async (req, res) => {
 const updateProfile = async (req, res) => {}
 const forgetpassword = async (req, res) => {}
 
-
-
 module.exports = { register, login, profile, updateProfile ,forgetpassword };
