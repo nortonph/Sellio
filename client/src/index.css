@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-pagination ,
+.swiper-button-next,
+.swiper-button-prev {
+  color: gray
+}
