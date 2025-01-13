@@ -7,6 +7,7 @@ const itemSchema = new mongoose.Schema({
   category: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
   city: String,
   country: String,
+  coverPhoto: String,
   images: [String],
   videos: [String],
   datePosted: { type: Date, default: Date.now },
