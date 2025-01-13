@@ -15,25 +15,40 @@ function Slider() {
         slidesPerView={1}
         navigation
         pagination={{ clickable: false }}
-        scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
         <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/cHQAAOSwEGlnfwEN/s-l1600.webp"
-            alt="Slide 1"
-            className="w-full h-80 rounded-lg shadow-lg object-cover"
-          />
+          <div className="relative">
+            <img
+              src="https://i.ebayimg.com/images/g/cHQAAOSwEGlnfwEN/s-l1600.webp"
+              alt="Slide 1"
+              className="w-full h-80 rounded-lg shadow-lg object-cover"
+            />
+            <div className="absolute top-1/2 left-4 transform -translate-y-1/2 text-green-900 px-8 py-3 mx-10">
+              <h3 className="text-6xl font-bold">Wooden bed flower</h3>
+            </div>
+            <div className="absolute bottom-2 left-14 transform -translate-y-1/2 rounded-full  bg-green-900 text-white px-8 py-3 mx-10">
+              <h3 className="text-2xl font-bold">Buy Now</h3>
+            </div>
+          </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/s80AAOSwbOtmKEfy/s-l1600.webp"
-            alt="Slide 2"
-            className="w-full h-80 rounded-lg shadow-lg object-cover"
-          />
+          <div className="relative">
+            <img
+              src="https://i.ebayimg.com/images/g/s80AAOSwbOtmKEfy/s-l1600.webp"
+              alt="Slide 2"
+              className="w-full h-80 rounded-lg shadow-lg object-cover"
+            />
+            <div className="absolute top-1/2 left-4 transform -translate-y-1/2 text-green-900 px-8 py-3 mx-10">
+              <h3 className="text-6xl font-bold">Wooden bed flower</h3>
+            </div>
+            <div className="absolute bottom-2 left-14 transform -translate-y-1/2 rounded-full  bg-green-900 text-white px-8 py-3 mx-10">
+              <h3 className="text-2xl font-bold">See More</h3>
+            </div>
+          </div>
         </SwiperSlide>
+
       </Swiper>
 
       {/* Add custom CSS to change arrow and pagination colors */}

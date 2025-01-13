@@ -1,35 +1,19 @@
-import './App.css'
-import Filters from './components/Filters'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import Items from './components/Items'
-import NewestSlider from './components/NewestSlider'
-import Slider from './components/Slider'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Search from './pages/Search';
+import SinglePage from './pages/SinglePage';
 
 function App() {
-
   return (
-    <div>
-      
-      <Header/>
-
-      <div className='flex flex-col gap-3 text-green-950 px-20 py-5'>
-
-          <Slider/>
-
-          <Filters/>
-
-          <Items/>
-
-          <NewestSlider/>
-
-      </div>
-
-
-      <Footer/>
-
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/item" element={<SinglePage />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
