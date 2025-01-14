@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import BackButton from "../components/BackButton";
 
 function AddItem() {
   const navigate = useNavigate();
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
+
 
   const [formData, setFormData] = useState({
     title: "",
@@ -46,9 +45,7 @@ function AddItem() {
     <div className="p-6 max-w-4xl mx-auto bg-white rounded-md shadow-md">
       <div className="flex flex-row justify-between">
         <h2 className="text-2xl font-bold text-gray-700 mb-6">Add a New Item</h2>
-        <button onClick={handleBackClick} className="text-blue-500 hover:underline">
-          Back
-        </button>
+        <BackButton/>
       </div>
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Title */}
