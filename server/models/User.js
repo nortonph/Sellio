@@ -2,10 +2,10 @@ const mongoose = require('./db.js');
 
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
+  profilePicUrl: { type: String},
   contactInfo: { type: String, required: true, },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
-  itemsBought: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
   itemsSold: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
 });
 

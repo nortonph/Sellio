@@ -19,8 +19,18 @@ function SinglePageDetail(){
 
       <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-5">
         <h2 className="font-semibold text-lg mb-2">Contact Seller</h2>
-        <p className="text-sm text-gray-600">Phone: +123456789</p>
-        <p className="text-sm text-gray-600">Email: seller@example.com</p>
+        <div className="flex flex-row items-center gap-2">
+          <img 
+          className="w-12 rounded-full"
+          src="https://pics.craiyon.com/2023-11-26/oMNPpACzTtO5OVERUZwh3Q.webp" 
+          alt="profile pic" 
+          />
+          <a href="/profile" className="hover:underline">
+            <p className="text-sm text-gray-600 font-bold">John Hostman</p>
+          </a>
+        </div>
+        <p className="text-sm text-gray-600 ml-2 mt-2">Phone: +123456789</p>
+        <p className="text-sm text-gray-600 ml-2">Email: seller@example.com</p>
       </div>
 
       <button
