@@ -6,7 +6,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-function Slider() {
+interface SliderProps {
+  images: string[]; // Ensure images is a string array
+}
+
+function Slider({ images }: SliderProps) {
+  const url = 'http://localhost:3001';
+
   return (
     <div className="w-full relative">
       <Swiper
@@ -20,112 +26,27 @@ function Slider() {
           640: { slidesPerView: 4 },
           768: { slidesPerView: 5 },
           1024: { slidesPerView: 6 },
-          1280: { slidesPerView: 7 }, 
+          1280: { slidesPerView: 7 },
           1536: { slidesPerView: 8 },
           1920: { slidesPerView: 10 },
           2560: { slidesPerView: 12 },
           3840: { slidesPerView: 14 },
         }}
       >
-
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/SnEAAOSw~O5mj9bc/s-l1600.webp"
-            alt="Thumbnail 1"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/elUAAOSwPZBmj9d6/s-l1600.webp"
-            alt="Thumbnail 2"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/n78AAOSweoVmj9co/s-l1600.webp"
-            alt="Thumbnail 3"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/KzQAAOSwAIRmj9dx/s-l1600.webp"
-            alt="Thumbnail 4"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/SnEAAOSw~O5mj9bc/s-l1600.webp"
-            alt="Thumbnail 5"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/elUAAOSwPZBmj9d6/s-l1600.webp"
-            alt="Thumbnail 6"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/SnEAAOSw~O5mj9bc/s-l1600.webp"
-            alt="Thumbnail 1"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/elUAAOSwPZBmj9d6/s-l1600.webp"
-            alt="Thumbnail 2"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/n78AAOSweoVmj9co/s-l1600.webp"
-            alt="Thumbnail 3"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/KzQAAOSwAIRmj9dx/s-l1600.webp"
-            alt="Thumbnail 4"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/SnEAAOSw~O5mj9bc/s-l1600.webp"
-            alt="Thumbnail 5"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-        
-        <SwiperSlide>
-          <img
-            src="https://i.ebayimg.com/images/g/elUAAOSwPZBmj9d6/s-l1600.webp"
-            alt="Thumbnail 6"
-            className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
-          />
-        </SwiperSlide>
-
+        {images?.length > 0 ? (
+          images.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={`${url}/${image}`}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-20 h-20 object-cover rounded-lg border border-gray-300 cursor-pointer"
+              />
+            </SwiperSlide>
+          ))
+        ) : (
+          <div className="text-gray-500">No images available</div>
+        )}
       </Swiper>
-      
     </div>
   );
 }

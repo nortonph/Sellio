@@ -1,35 +1,70 @@
-import Filters from '../components/Filters'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
-import Items from '../components/Items'
-import NewestSlider from '../components/NewestSlider'
-import Slider from '../components/Slider'
+import { useEffect, useState } from 'react';
+import Filters from '../components/Filters';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Item from '../components/Item';
+import NewestSlider from '../components/NewestSlider';
+import Pagination from '../components/Pagination';
+import Slider from '../components/Slider';
+import { Item as ItemType } from '../types/Item';
 
 function Home() {
+  const [items, setItems] = useState<ItemType[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [totalPages, setTotalPages] = useState(1);
+
+
+  // Fetch items from the server
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setItems(data.items);
+        setTotalPages(data.totalPages);
+        setItemsPerPage(data.itemsPerPage);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    fetchItems();
+  }, [currentPage, itemsPerPage]);
+
+  const handlePageChange = (newPage: number) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
 
   return (
     <div>
-      
-      <Header/>
+      <Header />
+      <div className="flex flex-col gap-3 px-20 py-5">
+        <Slider />
+        <Filters />
 
-      <div className='flex flex-col gap-3  px-20 py-5'>
+        <h1 className="font-bold mt-10">Second-hand Stuff for You!</h1>
 
-          <Slider/>
+          <section className="list-of-items grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
 
-          <Filters/>
+            {items.map((item) => (
+              <Item key={item?.id} item={item} />
+            ))}
+            
+          </section>
 
-          <h1 className='font-bold mt-10'>Second-hand Stuff for You!</h1>
-          <Items/>
+          <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
 
-          <NewestSlider/>
-
+        <NewestSlider />
       </div>
-
-
-      <Footer/>
-
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

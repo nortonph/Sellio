@@ -4,8 +4,8 @@ const path = require('path');
 
 const getItem = async (req, res) => {
   try {
-    const { itemId } = req.params;
-    const item = await Item.findById(itemId);
+    const { id } = req.params;
+    const item = await Item.findById(id);
     if (!item) {
       return res.status(404).send({ message: 'Item not found' });
     }
@@ -226,5 +226,7 @@ const deleteItem = async (req, res) => {
     res.status(500).send({ message: 'Error deleting item', error });
   }
 };
+
+
 
 module.exports = { getItems, getItem , addItem, getFilteredItems, updateItem, uploadMedia, getUserSoldItems, getUserItemsWaitingForSell, deleteItem };

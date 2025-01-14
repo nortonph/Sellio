@@ -184,4 +184,13 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { register, login, profile, updateProfile ,forgetpassword, getUsers, addUser, updateUser, deleteUser };
+const seller = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await User.findById(id).select('-password');
+    res.status(200).send(user);
+  } catch {
+    res.status(404).send({ error, message: 'Resource not found' });
+  }
+};
+module.exports = { register, login, profile, updateProfile ,forgetpassword, getUsers, addUser, updateUser, deleteUser, seller };

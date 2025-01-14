@@ -7,12 +7,13 @@ import Search from './pages/Search';
 import SinglePage from './pages/SinglePage';
 import AdminHomePage from './pages/admin/AdminHomePage';
 
+
 function App() {
   return (
     <Router>
       <Routes>
       <Route path="/" element={<Home />} />
-        <Route path="/item" element={<SinglePage />} />
+        <Route path="/item/:id" element={<SinglePage />} />
         <Route path="/search" element={<Search />} />
         <Route path="/add-item" element={<AddItem />} />
         <Route path="/profile" element={<Profile />} />

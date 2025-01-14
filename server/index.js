@@ -1,14 +1,17 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
 const fileUpload = require('express-fileupload');
 const router = require('./router.js');
 const rateLimit = require('express-rate-limit');
 
+app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
+
 const corsConfig = {
-  origin: 'http://localhost:3000',
+  origin: 'http://localhost:5173',
   credentials: true,
 };
 
