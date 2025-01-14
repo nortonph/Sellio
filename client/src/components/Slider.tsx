@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -7,11 +9,17 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 function Slider() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/item');
+  };
+
   return (
     <div className="w-full relative">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={20}
+        spaceBetween={5}
         slidesPerView={1}
         navigation
         pagination={{ clickable: false }}
@@ -28,7 +36,10 @@ function Slider() {
               <h3 className="text-6xl font-bold">Wooden bed flower</h3>
             </div>
             <div className="absolute bottom-2 left-14 transform -translate-y-1/2 rounded-full  bg-green-900 text-white px-8 py-3 mx-10">
-              <h3 className="text-2xl font-bold">Buy Now</h3>
+              
+              <button onClick={handleButtonClick} >
+                <h3 className="text-2xl font-bold">Buy Now</h3>
+              </button>
             </div>
           </div>
         </SwiperSlide>
@@ -44,7 +55,9 @@ function Slider() {
               <h3 className="text-6xl font-bold">Wooden bed flower</h3>
             </div>
             <div className="absolute bottom-2 left-14 transform -translate-y-1/2 rounded-full  bg-green-900 text-white px-8 py-3 mx-10">
-              <h3 className="text-2xl font-bold">See More</h3>
+              <button onClick={handleButtonClick} >
+                  <h3 className="text-2xl font-bold">Buy Now</h3>
+              </button>
             </div>
           </div>
         </SwiperSlide>

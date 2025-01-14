@@ -3,16 +3,14 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import SinglePageDetail from '../components/SinglePageDetail'
 import SinglePageSlider from '../components/SinglePageSlider'
-import Slider from '../components/Slider'
 
 function SinglePage() {
 
   return (
     <div> 
       <Header/>
-      <div className='flex flex-col gap-3 text-green-950 px-20 py-5'>
-        <Slider/>
-        <div className='flex justify-end mx-10'>
+      
+        <div className='flex justify-end my-5 mx-20'>
           <BackButton />
         </div>
         <div className="flex flex-col gap-8 px-20 py-5 mt-10 text-green-950">
@@ -39,7 +37,7 @@ function SinglePage() {
             </div>
           </div>
         </div>
-      </div>
+
       <Footer/>
     </div>
   )
