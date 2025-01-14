@@ -19,8 +19,8 @@ const getItems = async (req, res) => {
   try {
     const { page = 1 } = req.query;
 
-    const pageNumber = parseInt(page, 10);
-    const limitNumber = 10;
+    const pageNumber = parseInt(page, 1);
+    const limitNumber = 30;
 
     const items = await Item.find()
       .skip((pageNumber - 1) * limitNumber)
@@ -48,7 +48,7 @@ const getFilteredItems = async (req, res) => {
     const { price, category, city, country, page = 1 } = req.query;
 
     const pageNumber = parseInt(page, 10);
-    const limitNumber = 10;
+    const limitNumber = 30;
 
     const filter = {};
 
@@ -165,7 +165,7 @@ const getUserSoldItems = async (req, res) => {
     const user = req.user;
     const { page = 1 } = req.query;
     const pageNumber = parseInt(page, 10);
-    const limitNumber = 10;
+    const limitNumber = 30;
 
     const items = await Item.find({ isSold: true, userId: user._id })
       .skip((pageNumber - 1) * limitNumber)
@@ -191,7 +191,7 @@ const getUserItemsWaitingForSell = async (req, res) => {
     const userId = req.user._id;
     const { page = 1 } = req.query;
     const pageNumber = parseInt(page, 10);
-    const limitNumber = 10;
+    const limitNumber = 30;
 
     const items = await Item.find({ isSold: false, userId: userId })
       .skip((pageNumber - 1) * limitNumber)

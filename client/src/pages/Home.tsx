@@ -17,6 +17,13 @@ function Home() {
 
   // Fetch items from the server
   useEffect(() => {
+    document.title = "Sellio";
+
+    const link = document.querySelector("link[rel='icon']") || document.createElement("link");
+    link.rel = "icon";
+    link.href = "/assets/images/sellio-48.png"; 
+    document.head.appendChild(link);
+
     const fetchItems = async () => {
       try {
         const response = await fetch('http://localhost:3001/');

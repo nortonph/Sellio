@@ -63,13 +63,13 @@ function SinglePage() {
         <div className="flex flex-col gap-8 px-20 py-5 mt-10 text-green-950">
           <div className="grid grid-cols-2 gap-10">
 
-            <div className="flex-1">
+            <div className="flex-1 items-center ">
 
-              <div className="mb-5">
+              <div className=" mb-5">
                 <img
                   src={`${url}/${item?.coverPhoto}`}
                   alt="Product"
-                  className=" w-full h-96 object-cover rounded-lg shadow-md"
+                  className=" w-auto h-96 object-contain rounded-lg shadow-md"
                 />
               </div>
 
@@ -106,7 +106,7 @@ function SinglePage() {
                       <p className="text-sm text-gray-600 font-bold">{user?.email}</p>
                     </a>
                   </div>
-                  <p className="text-sm text-gray-600 ml-2 mt-2">Contact Information: {user?.contactInfo}</p>
+                  <p className="text-sm text-gray-600 ml-2 mt-2">Phone: {user?.contactInfo}</p>
                   <p className="text-sm text-gray-600 ml-2">Email: {user?.email}</p>
                 </div>
 
