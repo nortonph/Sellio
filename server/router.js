@@ -14,23 +14,24 @@ const loginAndRegisterLimiter = rateLimit({
 
 /******* public urls *******/
 /***************************/
-router.get('/items', itemController.getItems);
+router.get('/', itemController.getItems);
 router.get('/item/:itemId', itemController.getItem);
-router.get('/items', itemController.getFilteredItems);
-router.get('/admin/categories', categoryController.getCategories);
+router.get('/search', itemController.getFilteredItems);
+router.get('/categories', categoryController.getCategories);
 
-/******* users *******/
+/******* auth *******/
 /*********************/
 router.post('/register',loginAndRegisterLimiter, userController.register);
 router.post('/login',loginAndRegisterLimiter, userController.login);
-router.get('/me', authMiddleware, userController.profile);
-router.put('/user/update', authMiddleware, userController.updateProfile);
 router.post('/forgetpassword', userController.forgetpassword);// send new password to email
 
-//user add item for selling
+/******* user *******/
+/*********************/
+router.get('/me', authMiddleware, userController.profile);
+router.put('/user/update', authMiddleware, userController.updateProfile);
+	//user add item for selling
 router.post('/user/item/add',authMiddleware, itemController.addItem);
-router.put('/user/item/update', authMiddleware, itemController.updateItem);
-
+router.put('/user/item/update/:id', authMiddleware, itemController.updateItem);
 router.post('/user/item/upload', authMiddleware, itemController.uploadMedia);
 
 router.get('/user/items/sold', authMiddleware, itemController.getUserSoldItems);

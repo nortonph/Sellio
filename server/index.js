@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
+const fileUpload = require('express-fileupload');
 const router = require('./router.js');
 const rateLimit = require('express-rate-limit');
 
@@ -13,6 +14,7 @@ const corsConfig = {
 
 app.use(cors(corsConfig));
 app.use(express.json());
+app.use(fileUpload());
 app.use(router);
 
 const generalLimiter = rateLimit({

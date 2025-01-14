@@ -27,12 +27,13 @@ const register = async (req, res) => {
     const hash = await bcrypt.hash(password, 10);
     const newUser = new User({
       ...req.body,
+      contactInfo : email,
       password: hash,
     });
 
     const { _id } = await newUser.save();
-    const accessToken = jwt.sign({ _id }, SECRET_KEY);
-    res.status(201).send({ accessToken });
+    // const accessToken = jwt.sign({ _id }, SECRET_KEY);
+    res.status(201).send({ message: 'user register successfully' });
   } catch (error) {
     res.status(400).send({ error, message:error.message});
   }

@@ -3,7 +3,7 @@ const mongoose = require('./db.js');
 const itemSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  price: { type: Number, required: true },//TODO float
+  price: { type: Number, required: true },
   category: [{ type: mongoose.Schema.Types.ObjectId, ref: "Category" }],
   city: String,
   country: String,

@@ -107,8 +107,8 @@ const addItem = async (req, res) => {
 
 const updateItem = async (req, res) => {
   try {
-    const { itemId } = req.params;
-    const updatedItem = await Item.findByIdAndUpdate(itemId, req.body, { new: true });
+    const { id } = req.params;
+    const updatedItem = await Item.findByIdAndUpdate(id, req.body, { new: true });
     if (!updatedItem) {
       return res.status(404).send({ message: 'Item not found' });
     }
@@ -120,6 +120,7 @@ const updateItem = async (req, res) => {
 
 const uploadMedia = async (req, res) => {
   try {
+    console.log(req.file);
     if (!req.files || !req.files.media) {
       return res.status(400).send({ message: 'No file uploaded' });
     }
@@ -152,7 +153,7 @@ const uploadMedia = async (req, res) => {
       }
 
       const fileUrl = `/uploads/${isImage ? 'images' : 'videos'}/${fileName}`;
-      res.status(200).send({ message: 'File uploaded successfully', fileUrl });
+      res.status(200).send({ message: 'File uploaded successfully', url:fileUrl });
     });
   } catch (error) {
     res.status(500).send({ message: 'Error uploading file', error });
