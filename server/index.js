@@ -5,8 +5,12 @@ const path = require('path');
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
 const fileUpload = require('express-fileupload');
-const router = require('./router.js');
 const rateLimit = require('express-rate-limit');
+
+const adminRouter = require('./routers/admin.js');
+const publicRouter = require('./routers/public.js');
+const authRouter = require('./routers/auth.js');
+const userRouter = require('./routers/user.js');
 
 app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
 
@@ -18,7 +22,11 @@ const corsConfig = {
 app.use(cors(corsConfig));
 app.use(express.json());
 app.use(fileUpload());
-app.use(router);
+
+app.use(adminRouter);
+app.use(publicRouter);
+app.use(authRouter);
+app.use(userRouter);
 
 const generalLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,
