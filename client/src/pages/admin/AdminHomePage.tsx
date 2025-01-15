@@ -39,7 +39,7 @@ function AdminHomePage() {
           throw new Error('Failed to fetch items');
         }
         const data = await response.json(); 
-        setItems(data);
+        setItems(data.items);
       } catch (error) {
         console.error('Error fetching items:', error);
       }

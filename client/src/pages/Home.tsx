@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Item from '../components/Item';
 import NewestSlider from '../components/NewestSlider';
-import Pagination from '../components/Pagination';
 import Slider from '../components/Slider';
 import { Item as ItemType } from '../types/Item';
 
@@ -31,7 +30,7 @@ function Home() {
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
-        const data = await response.json(); 
+        const data = await response.json();
         setItems(data.items);
         setTotalPages(data.totalPages);
         setItemsPerPage(data.itemsPerPage);
@@ -88,13 +87,17 @@ function Home() {
 
           <section className="list-of-items grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
 
-            {items.map((item) => (
-              <Item key={item?.id} item={item} />
-            ))}
+          {items && items.length > 0 ? (
+              items.map((item) => (
+                <Item key={item?.id} item={item} />
+              ))
+            ) : (
+              <p>No items available.</p>
+            )}
             
           </section>
 
-          <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
+          {/* <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} /> */}
 
         <NewestSlider recentItems={newest}/>
       </div>
