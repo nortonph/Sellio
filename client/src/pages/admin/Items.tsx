@@ -1,4 +1,4 @@
-function Items() {
+function Items({items}) {
   return (
     <div className="col-span-10 p-4 bg-gray-50">
         <div className="flex flex-row justify-end mx-10 my-5">
@@ -23,27 +23,27 @@ function Items() {
             </thead>
 
             <tbody>
-
-              <tr className="hover:bg-gray-100">
-                <td className="px-6 py-4 border-b"> T-Shirt</td>
-                <td className="px-6 py-4 border-b">30$ </td>
-                <td className="px-6 py-4 border-b">
-                   <span className="bg-gray-100 px-2 py-1 mx-1 rounded-lg"> Shirts</span>
-                   <span className="bg-gray-100 px-2 py-1 mx-1 rounded-lg">women</span>
-                </td>
-                <td className="px-6 py-4 border-b"> Berlin</td>
-                <td className="px-6 py-4 border-b"> Germany</td>
-                <td className="px-6 py-4 border-b"> 2023.12.23</td>
-                <td className="px-6 py-4 border-b"> no </td>
-                <td className="px-6 py-4 border-b"> yes </td>
-                <td className="px-6 py-4 border-b"> Max rud</td>
-                <td className="px-6 py-4 border-b flex space-x-4">
-                  <button className="text-blue-500 hover:underline">Edit</button>
-                  <button className="text-red-500 hover:underline">Delete</button>
-                </td>
-              </tr>
-
-              
+              {items && items.map((item, index) => (
+                <tr key={index} className="hover:bg-gray-100">
+                  <td className="px-6 py-4 border-b">{item.title}</td>
+                  <td className="px-6 py-4 border-b">{item.price}$</td>
+                  <td className="px-6 py-4 border-b">
+                    {item.categories && item.categories.map((category, idx) => (
+                      <span key={idx} className="bg-gray-100 px-2 py-1 mx-1 rounded-lg">{category}</span>
+                    ))}
+                  </td>
+                  <td className="px-6 py-4 border-b">{item.city}</td>
+                  <td className="px-6 py-4 border-b">{item.country}</td>
+                  <td className="px-6 py-4 border-b">{item.datePosted}</td>
+                  <td className="px-6 py-4 border-b">{item.isBanner ? 'Yes' : 'No'}</td>
+                  <td className="px-6 py-4 border-b">{item.isSold ? 'Yes' : 'No'}</td>
+                  <td className="px-6 py-4 border-b">{item.userId}</td>
+                  <td className="px-6 py-4 border-b flex space-x-4">
+                    <button className="text-blue-500 hover:underline">Edit</button>
+                    <button className="text-red-500 hover:underline">Delete</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

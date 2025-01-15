@@ -10,12 +10,13 @@ import { Item as ItemType } from '../types/Item';
 
 function Home() {
   const [items, setItems] = useState<ItemType[]>([]);
+  const [banners, setBanners] = useState<ItemType[]>([]);
+  const [newest, setNewest] = useState<ItemType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [totalPages, setTotalPages] = useState(1);
 
 
-  // Fetch items from the server
   useEffect(() => {
     document.title = "Sellio";
 
@@ -39,7 +40,35 @@ function Home() {
       }
     };
 
+    const fetchBanners = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/banners');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setBanners(data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    const fetchNewest = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/newest');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setNewest(data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
     fetchItems();
+    fetchBanners();
+    fetchNewest();
   }, [currentPage, itemsPerPage]);
 
   const handlePageChange = (newPage: number) => {
@@ -52,7 +81,7 @@ function Home() {
     <div>
       <Header />
       <div className="flex flex-col gap-3 px-20 py-5">
-        <Slider />
+        <Slider banners={banners}/>
         <Filters />
 
         <h1 className="font-bold mt-10">Second-hand Stuff for You!</h1>
@@ -67,7 +96,7 @@ function Home() {
 
           <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
 
-        <NewestSlider />
+        <NewestSlider recentItems={newest}/>
       </div>
       <Footer />
     </div>

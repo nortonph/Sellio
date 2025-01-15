@@ -103,23 +103,25 @@ const forgetpassword = async (req, res) => {
 
 const getUsers = async (req, res) => {
   try {
-    const { page = 1 } = req.query;
-    const pageNumber = parseInt(page, 10);
-    const limitNumber = 10;
+    // const { page = 1 } = req.query;
+    // const pageNumber = parseInt(page);
+    // const limitNumber = 20;
 
     const users = await User.find()
-      .skip((pageNumber - 1) * limitNumber)
-      .limit(limitNumber);
+      // .skip((pageNumber - 1) * limitNumber)
+      // .limit(limitNumber);
+      // console.log(users);
 
-    const totalUsers = await User.countDocuments();
-    const totalPages = Math.ceil(totalUsers / limitNumber);
+    // const totalUsers = await User.countDocuments();
+    // const totalPages = Math.ceil(totalUsers / limitNumber);
+    res.status(200).send(users);
 
-    res.status(200).send({
-      currentPage: pageNumber,
-      totalPages,
-      totalUsers,
-      users: sanitizeUser(users),
-    });
+    // res.status(200).send({
+    //   currentPage: pageNumber,
+    //   totalPages,
+    //   totalUsers,
+    //   users: sanitizeUser(users),
+    // });
   } catch (error) {
     res.status(500).send({ message: 'Error fetching users', error });
   }

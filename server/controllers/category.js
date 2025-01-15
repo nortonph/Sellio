@@ -3,19 +3,14 @@ const Category = require('../models/category');
 
 const addCategory = async (req, res) => {
   try {
-    const { name, description } = req.body;
-
+    const { name } = req.body;
     if (!name) {
       return res.status(400).json({ message: 'Category name is required' });
     }
-
     const newCategory = new Category({
       name,
-      description,
     });
-
     const savedCategory = await newCategory.save();
-
     res.status(201).json({
       message: 'Category added successfully',
       category: savedCategory,
@@ -52,10 +47,7 @@ const getCategories = async (req, res) => {
   try {
     const categories = await Category.find();
 
-    res.status(200).json({
-      message: 'Categories fetched successfully',
-      categories,
-    });
+    res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching categories', error: error.message });
   }

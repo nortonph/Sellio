@@ -1,3 +1,5 @@
+import { Item } from './Item';
+
 export interface User {
   _id : string,
   email : string,
@@ -5,6 +7,6 @@ export interface User {
   contactInfo : string,
   password : string,
   isAdmin: boolean,
-  itemsSold : boolean
+  items : Item[]
 
 }

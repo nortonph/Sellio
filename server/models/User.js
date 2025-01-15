@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   contactInfo: { type: String, required: true, },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, default: false },
-  itemsSold: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
+  items: [{ type: mongoose.Schema.Types.ObjectId, ref: "Item" }],
 });
 
 module.exports = mongoose.model("User", userSchema);

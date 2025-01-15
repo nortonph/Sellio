@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Categories from './Categories';
 import Items from './Items';
 import Messages from './Messages';
@@ -7,6 +7,65 @@ import User from './User';
 
 function AdminHomePage() {
   const [selectedTab, setSelectedTab] = useState('Users');
+  const [users, setUsers] = useState(null);
+  const [items, setItems] = useState(null);
+  const [categories, setCategories] = useState(null);
+
+  useEffect(() => {
+    document.title = "Admin - Sellio";
+
+    const link = document.querySelector("link[rel='icon']") || document.createElement("link");
+    link.rel = "icon";
+    link.href = "/assets/images/sellio-48.png"; 
+    document.head.appendChild(link);
+  
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/admin/user');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    const fetchItems = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/admin/items');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setItems(data);
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/categories');
+        if (!response.ok) {
+          throw new Error('Failed to fetch items');
+        }
+        const data = await response.json(); 
+        setCategories(data);
+        
+      } catch (error) {
+        console.error('Error fetching items:', error);
+      }
+    };
+  
+  
+    fetchUsers();
+    fetchItems();
+    fetchCategories();
+    }, []);
+
+  
   
   return (
     <div className="grid grid-cols-12 bg-gray-100">
@@ -64,9 +123,9 @@ function AdminHomePage() {
 
         
       <div className="col-span-10">
-        {selectedTab === 'Users' && <User />}
-        {selectedTab === 'Items' && <Items />}
-        {selectedTab === 'Categories' && <Categories />}
+        {selectedTab === 'Users' && <User users={users}/>}
+        {selectedTab === 'Items' && <Items items={items}/>}
+        {selectedTab === 'Categories' && <Categories categories={categories} />}
         {selectedTab === 'Messages' && <Messages />}
       </div>
         

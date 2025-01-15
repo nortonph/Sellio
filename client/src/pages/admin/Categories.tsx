@@ -1,4 +1,4 @@
-function Categories() {
+function Categories({categories}) {
   return (
     <div className="col-span-10 p-4 bg-gray-50">
       <div className="flex flex-row justify-end mx-10 my-5">
@@ -15,17 +15,16 @@ function Categories() {
             </thead>
 
             <tbody>
-
-              <tr className="hover:bg-gray-100">
-                <td className="px-6 py-4 border-b">user@example.com</td>
+            {categories && categories.map((category, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="px-6 py-4 border-b">{category.name}</td>
                 <td className="px-6 py-4 border-b flex space-x-4">
                   <button className="text-blue-500 hover:underline">Edit</button>
                   <button className="text-red-500 hover:underline">Delete</button>
                 </td>
               </tr>
-
-              
-            </tbody>
+            ))}
+          </tbody>
           </table>
       </div>
     </div>

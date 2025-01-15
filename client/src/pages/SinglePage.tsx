@@ -4,8 +4,10 @@ import BackButton from '../components/BackButton';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import SinglePageSlider from '../components/SinglePageSlider';
+import { Category } from '../types/Category';
 import { Item as ItemType } from '../types/Item';
 import { User } from '../types/User';
+
 
 
 function SinglePage() {
@@ -13,10 +15,12 @@ function SinglePage() {
   const [item, setItem] = useState<ItemType | null>(null);
   const [user, setUser] = useState<User | null>(null);
 
+  const [categories, setCategories] = useState<Category[]>([]);
+
+
   const url = 'http://localhost:3001';
 
   useEffect(() => {
-    // Fetch the item first
     const fetchItem = async () => {
       try {
         const response = await fetch(`http://localhost:3001/item/${id}`);
@@ -34,7 +38,6 @@ function SinglePage() {
   }, [id]);
 
   useEffect(() => {
-    // Fetch the user only after the item is loaded
     if (item?.userId) {
       const fetchUser = async () => {
         try {
@@ -52,6 +55,27 @@ function SinglePage() {
       fetchUser();
     }
   }, [item?.userId]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch(`http://localhost:3001/categories`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch categories');
+        }
+        const data = await response.json();
+        setCategories(data); 
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
+  const categoryNames = item?.category
+    ?.map((catId) => categories.find((cat) => cat._id === catId)?.name || '')
+    .join(', ');
 
   return (
     <div> 
@@ -84,7 +108,7 @@ function SinglePage() {
 
                 <div className="mb-5">
                   <p className="text-sm text-gray-600">
-                    <span className="font-bold">Category:</span> Kitchen
+                    <span className="font-bold">Category:</span> {categoryNames}
                   </p>
                   <p className="text-sm text-gray-600">
                     <span className="font-bold">City:</span> {item?.city}
@@ -102,7 +126,7 @@ function SinglePage() {
                     src={`${url}/${user?.profilePicUrl}`} 
                     alt="profile pic" 
                     />
-                    <a href="/profile" className="hover:underline">
+                    <a href={`/profile/${item?.userId}`} className="hover:underline">
                       <p className="text-sm text-gray-600 font-bold">{user?.email}</p>
                     </a>
                   </div>

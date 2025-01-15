@@ -1,4 +1,5 @@
-function User() {
+function User({users}) {
+
   return (
     <div className="col-span-10 p-4 bg-gray-50">
         <div className="flex flex-row justify-end mx-10 my-5">
@@ -18,19 +19,18 @@ function User() {
               </thead>
 
               <tbody>
-
-                <tr className="hover:bg-gray-100">
-                  <td className="px-6 py-4 border-b">user1@example.com</td>
-                  <td className="px-6 py-4 border-b">123-456-7890</td>
-                  <td className="px-6 py-4 border-b">Yes</td>
-                  <td className="px-6 py-4 border-b">10</td>
-                  <td className="px-6 py-4 border-b flex space-x-4">
-                    <button className="text-blue-500 hover:underline">Edit</button>
-                    <button className="text-red-500 hover:underline">Delete</button>
-                  </td>
-                </tr>
-
-                
+                {users && users.map((user, index) => (
+                  <tr key={index} className="hover:bg-gray-100">
+                    <td className="px-6 py-4 border-b">{user.email}</td>
+                    <td className="px-6 py-4 border-b">{user.contactInfo}</td>
+                    <td className="px-6 py-4 border-b">{user.isAdmin ? 'Yes' : 'No'}</td>
+                    <td className="px-6 py-4 border-b">{user.itemsSold}</td>
+                    <td className="px-6 py-4 border-b flex space-x-4">
+                      <button className="text-blue-500 hover:underline">Edit</button>
+                      <button className="text-red-500 hover:underline">Delete</button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
         </table>
       </div>

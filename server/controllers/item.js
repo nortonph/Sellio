@@ -17,27 +17,68 @@ const getItem = async (req, res) => {
 
 const getItems = async (req, res) => {
   try {
-    const { page = 1 } = req.query;
+    // const { page = 1 } = req.query;
 
-    const pageNumber = parseInt(page, 1);
-    const limitNumber = 30;
+    // const pageNumber = parseInt(page, 1);
+    // const limitNumber = 30;
 
     const items = await Item.find()
-      .skip((pageNumber - 1) * limitNumber)
+      // .skip((pageNumber - 1) * limitNumber)
+      // .limit(limitNumber);
+
+    // const totalItems = await Item.countDocuments();
+
+    // const totalPages = Math.ceil(totalItems / limitNumber);
+    res.status(200).send(items);
+    // Send paginated response
+    // res.status(200).send({
+    //   currentPage: pageNumber,
+    //   totalPages,
+    //   totalItems,
+    //   itemsPerPage: limitNumber,
+    //   items,
+    // });
+  } catch (error) {
+    res.status(500).send({ message: 'Error fetching items', error });
+  }
+};
+
+const userItems = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // const items = await Item.find({userId : userId}).exec()
+    const items = await Item.find().exec();
+
+    const filteredItems = items.filter(item => item.userId.toString() === userId);
+  
+
+    res.status(200).send(filteredItems);
+  } catch (error) {
+    res.status(500).send({ message: 'Error fetching items', error });
+  }
+};
+
+const getNewestItem = async (req, res) => {
+  try {
+    const limitNumber = 6;
+
+    const items = await Item.find()
       .limit(limitNumber);
 
-    const totalItems = await Item.countDocuments();
+    res.status(200).send(items);
+  } catch (error) {
+    res.status(500).send({ message: 'Error fetching items', error });
+  }
+};
 
-    const totalPages = Math.ceil(totalItems / limitNumber);
+const getBannerItems = async (req, res) => {
+  try {
+    
+    const items = await Item.find({ isBanner: true });
 
-    // Send paginated response
-    res.status(200).send({
-      currentPage: pageNumber,
-      totalPages,
-      totalItems,
-      itemsPerPage: limitNumber,
-      items,
-    });
+    res.status(200).send(items);
+
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
   }
@@ -229,4 +270,4 @@ const deleteItem = async (req, res) => {
 
 
 
-module.exports = { getItems, getItem , addItem, getFilteredItems, updateItem, uploadMedia, getUserSoldItems, getUserItemsWaitingForSell, deleteItem };
+module.exports = { getItems, getItem, userItems,getBannerItems, getNewestItem, addItem, getFilteredItems, updateItem, uploadMedia, getUserSoldItems, getUserItemsWaitingForSell, deleteItem };
