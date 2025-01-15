@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const userController = require('../controllers/user');
-
+const rateLimit = require('express-rate-limit');
 
 const loginAndRegisterLimiter = rateLimit({
 	windowMs: 15 * 60 * 1000,
