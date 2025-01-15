@@ -1,7 +1,19 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 function Header(){
+  const [searchQuery, setSearchQuery] = useState(''); 
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <>
-    <div className="header flex flex-row justify-between bg-green-900 text-white">
+      <div className="header flex flex-row justify-between bg-green-900 text-white">
         <div className='flex flex-row gap-1  p-1 text-xs'> 
           <span className='text-xs'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
@@ -38,12 +50,12 @@ function Header(){
       
       <div className='flex flex-col gap-3 text-green-950 px-20 py-5'>
           <section className='flex flex-row  justify-end gap-4 cursor-pointer'>
-            <section className='flex flex-row items-center '>
-              <span>
-                <img src="/assets/images/sellio-48.png" alt="Sellio Logo" />
-              </span>
-              <span className='text-green-900 text-2xl font-bold'>Sellio</span>
-            </section>
+              <a href="/" className='flex flex-row items-center '>
+                <span>
+                  <img src="/assets/images/sellio-48.png" alt="Sellio Logo" />
+                </span>
+                <span className='text-green-900 text-2xl font-bold'>Sellio</span>
+              </a>
 
             <section className='flex flex-row items-center font-bold'>
               <span>Categories</span>
@@ -55,14 +67,16 @@ function Header(){
             </section>
 
             <section className="flex items-center ml-auto bg-gray-200 focus-within:bg-gray-300 rounded-full px-2 py-1 m-2 w-full max-w-xl">
-              <input 
-                type="text" 
-                placeholder="Search Product" 
+              <input
+                type="text"
+                placeholder="Search Product..."
                 className="flex-grow bg-transparent outline-none text-gray-700 placeholder-gray-500"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button className="text-gray-500 hover:text-gray-700 focus:outline-none">
+              <button className="text-gray-500 hover:text-gray-700 focus:outline-none" onClick={handleSearch}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
-                  <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
+                  <path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" />
                 </svg>
               </button>
             </section>

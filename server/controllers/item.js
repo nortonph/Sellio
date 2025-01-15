@@ -42,6 +42,36 @@ const getItems = async (req, res) => {
   }
 };
 
+const getFilteredItems = async (req, res) => {
+  try {
+    const { q, page = 1 } = req.query;
+
+    const pageNumber = parseInt(page, 10);
+    const limitNumber = 30;
+
+    const filter = {};
+
+    if (q) {
+      filter.title = { $regex: q, $options: 'i' };
+    }
+
+    const items = await Item.find(filter)
+      .skip((pageNumber - 1) * limitNumber)
+      .limit(limitNumber);
+
+    const totalItems = await Item.countDocuments(filter);
+
+    res.status(200).json({
+      currentPage: pageNumber,
+      totalPages: Math.ceil(totalItems / limitNumber),
+      totalItems,
+      items
+    });
+  } catch (error) {
+    res.status(500).send({ message: 'Error fetching filtered items', error });
+  }
+};
+
 const userItems = async (req, res) => {
   try {
     const { userId } = req.params;
@@ -76,48 +106,6 @@ const getBannerItems = async (req, res) => {
 
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
-  }
-};
-
-const getFilteredItems = async (req, res) => {
-  try {
-    const { price, category, city, country, page = 1 } = req.query;
-
-    const pageNumber = parseInt(page, 10);
-    const limitNumber = 30;
-
-    const filter = {};
-
-    if (price) {
-      //price is passed as a range like "min-max" (e.g.,"100-500")
-      const [minPrice, maxPrice] = price.split('-').map(Number);
-      if (!isNaN(minPrice)) filter.price = { $gte: minPrice };
-      if (!isNaN(maxPrice)) filter.price = { ...filter.price, $lte: maxPrice };
-    }
-
-    if (category) filter.category = category;
-    
-    if (city) filter.city = city;
-    
-    if (country) filter.country = country;
-    
-    const items = await Item.find(filter)
-      .skip((pageNumber - 1) * limitNumber)
-      .limit(limitNumber);
-
-    const totalItems = await Item.countDocuments(filter);
-
-    const totalPages = Math.ceil(totalItems / limitNumber);
-
-    res.status(200).send({
-      currentPage: pageNumber,
-      totalPages,
-      totalItems,
-      itemsPerPage: limitNumber,
-      items,
-    });
-  } catch (error) {
-    res.status(500).send({ message: 'Error fetching filtered items', error });
   }
 };
 

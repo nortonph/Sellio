@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Item from '../components/Item';
 import NewestSlider from '../components/NewestSlider';
+import Pagination from '../components/Pagination';
 import Slider from '../components/Slider';
 import { Item as ItemType } from '../types/Item';
 
@@ -97,7 +98,7 @@ function Home() {
             
           </section>
 
-          {/* <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} /> */}
+          <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
 
         <NewestSlider recentItems={newest}/>
       </div>

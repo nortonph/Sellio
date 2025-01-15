@@ -14,7 +14,9 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<SinglePage />} />
+
         <Route path="/search" element={<Search />} />
+        
         <Route path="/add-item" element={<AddItem />} />
         <Route path="/profile/:userId" element={<Profile />} />
         <Route path="/admin" element={<AdminHomePage />} />
