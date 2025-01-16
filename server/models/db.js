@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const DB_PROT = process.env.DB_NAME || 'mongodb';
-const DB_HOST = process.env.DB_NAME || 'localhost';
+const DB_PROT = process.env.DB_PROT || 'mongodb';
+const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_PORT = process.env.DB_PORT || 27017;
 const DB_NAME = process.env.DB_NAME || 'sellio';
 
