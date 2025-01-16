@@ -12,9 +12,9 @@ const connectDB = async () => {
   try {
     await mongoose.connect(
       `${DB_PROT}://${DB_SRV}${DB_HOST}:${DB_PORT}/${DB_NAME}`,
-      {
+      
         //'mongodb+srv://username:badpw@cluster0-OMITTED.mongodb.net/'
-      }
+      
     );
     console.log(
       `Database ${DB_NAME} on port ${DB_PORT} connected successfully!`
