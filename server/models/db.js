@@ -11,7 +11,7 @@ const DB_SRV = process.env.DB_SRV || "";
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      `${DB_PROT}://${DB_SRV}${DB_HOST}:${DB_PORT}/${DB_NAME}`,
+      `${DB_PROT}://${DB_SRV}${DB_HOST}:${DB_PORT}/${DB_NAME}`
       
         //'mongodb+srv://username:badpw@cluster0-OMITTED.mongodb.net/'
       
