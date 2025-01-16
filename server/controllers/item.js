@@ -1,4 +1,4 @@
-const Item = require('../models/item');
+const Item = require('../models/Item');
 const fs = require('fs');
 const path = require('path');
 
@@ -9,7 +9,7 @@ const getItem = async (req, res) => {
     if (!item) {
       return res.status(404).send({ message: 'Item not found' });
     }
-    res.status(200).send(item); 
+    res.status(200).send(item);
   } catch (error) {
     res.status(500).send({ message: 'Error fetching item', error });
   }
@@ -77,7 +77,7 @@ const userItems = async (req, res) => {
     const { userId } = req.params;
 
     const items = await Item.find({userId : userId}).exec();
-  
+
     res.status(200).send(items);
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
@@ -99,7 +99,7 @@ const getNewestItem = async (req, res) => {
 
 const getBannerItems = async (req, res) => {
   try {
-    
+
     const items = await Item.find({ isBanner: true });
 
     res.status(200).send(items);
