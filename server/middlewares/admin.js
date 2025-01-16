@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
-const User = require('./../models/user');
+const User = require('../models/User');
 const SECRET_KEY = process.env.SECRET_KEY || 'default';
 
 const adminMiddleware = async (req, res, next) => {
+  // next(); and comment rest to skip isAdmin check
+
     const authHeaders = req.headers['authorization'];
     
     if (!authHeaders) return res.sendStatus(403);

@@ -3,8 +3,9 @@ import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Item as ItemType } from '../types/Item';
 
+// FIXME
 
-import 'swiper/css';
+import 'swiper/swiper.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
