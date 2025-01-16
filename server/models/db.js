@@ -10,15 +10,8 @@ const DB_SRV = process.env.DB_SRV || "";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      `${DB_PROT}://${DB_SRV}${DB_HOST}:${DB_PORT}/${DB_NAME}`
-      
-        //'mongodb+srv://username:badpw@cluster0-OMITTED.mongodb.net/'
-      
-    );
-    console.log(
-      `Database ${DB_NAME} on port ${DB_PORT} connected successfully!`
-    );
+    await mongoose.connect(`${DB_PROT}://${DB_SRV}${DB_HOST}:${DB_PORT}/${DB_NAME}`);
+    console.log(`Database ${DB_NAME} on port ${DB_PORT} connected successfully!`);
   } catch (err) {
     console.error(`Database connection failed: ${err.message}`);
     process.exit(1);
