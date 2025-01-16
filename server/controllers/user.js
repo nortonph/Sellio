@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../models/user');
 const SECRET_KEY = process.env.SECRET_KEY || 'default';
 
 const generateRandomPassword = (length = 8) => {
@@ -20,7 +20,7 @@ const register = async (req, res) => {
     return res
       .status(409)
       .send({ error: '409', message: 'User already exists' });
-    
+
   try {
     if (password.length < 6) throw new Error('password is too short');
 
