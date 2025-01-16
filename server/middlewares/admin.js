@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User');
 const SECRET_KEY = process.env.SECRET_KEY || 'default';
 
 const adminMiddleware = async (req, res, next) => {
