@@ -5,8 +5,6 @@ import Header from '../components/Header';
 import Item from '../components/Item';
 import { Item as ItemType } from '../types/Item';
 
-// BUG: Search does work, but not clicking enter
-
 function SinglePage() {
   const location = useLocation();
 
@@ -31,7 +29,7 @@ function SinglePage() {
       };
   
       fetchItems();
-    }, []);
+    }, [searchQuery]);
 
   return (
     <div>
