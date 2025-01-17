@@ -94,16 +94,16 @@ function Home() {
         <section className="list-of-items grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
 
           {items && items.length > 0 ? (
-            items.map((item) => (
-              <Item key={item?.id} item={item} />
-            ))
-          ) : (
-            <p>No items available.</p>
-          )}
+              items.map((item) => (
+                <Item key={item?._id} item={item} />
+              ))
+            ) : (
+              <p>No items available.</p>
+            )}
+            
+          </section>
 
-        </section>
-
-        <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
+          <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
 
         <NewestSlider recentItems={newest} />
       </div>
