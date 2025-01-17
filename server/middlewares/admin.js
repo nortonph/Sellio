@@ -1,8 +1,11 @@
+require('dotenv').config({
+  path:
+    process.env.NODE_ENV === 'test'
+      ? '../.env.test.local'
+      : '../.env.development.local',
+});
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
-require('dotenv').config({
-  path: process.env.NODE_ENV === 'test' ? '../testing.env' : '../config.env',
-});
 const SECRET_KEY = process.env.SECRET_KEY || 'default';
 
 const adminMiddleware = async (req, res, next) => {
