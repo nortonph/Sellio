@@ -1,9 +1,8 @@
-require('dotenv').config();
+require('dotenv').config({ path: './config.env' });
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-require('dotenv').config({ path: './config.env' });
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
 const fileUpload = require('express-fileupload');
 const rateLimit = require('express-rate-limit');

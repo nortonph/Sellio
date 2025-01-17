@@ -1,0 +1,650 @@
+{
+  "items": [
+    {
+      "_id": "6786a3f511782b4c8f864f32",
+      "title": "Tanglewood TW300 Akustikgitarre",
+      "description": "Tanglewood TW300 Akustikgitarre",
+      "price": 19.99,
+      "category": [
+        "6786f009aa8eec0327f17c57"
+      ],
+      "city": "London",
+      "country": "England",
+      "coverPhoto": "uploads/images/1736871896461-1.jpg",
+      "images": [
+        "uploads/images/1736872023393-2.jpg",
+        "uploads/images/1736872055930-3.jpg",
+        "uploads/images/1736872072612-4.jpg"
+      ],
+      "videos": [],
+      "isBanner": false,
+      "isSold": false,
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2025-01-14T17:50:45.071Z",
+      "__v": 0
+    },
+    {
+      "_id": "6786b615a28d4e5a676c6b79",
+      "images": [
+        "uploads/images/1736881311467-2.jpg",
+        "uploads/images/1736881328710-3.jpg",
+        "uploads/images/1736881343876-4.jpg",
+        "uploads/images/1736881362458-5.jpg",
+        "uploads/images/1736881379448-6.jpg",
+        "uploads/images/1736881392257-7.jpg"
+      ],
+      "coverPhoto": "uploads/images/1736881251789-1.jpg",
+      "title": "Jackson DK-2S Dark Metallic Red 1998 Electric Guitar Spare Parts/Repairs",
+      "description": "Jackson DK-2S Dark Metallic Red 1998 Electric Guitar Spare Parts/Repairs",
+      "price": 390,
+      "category": [
+        "6786f009aa8eec0327f17c57"
+      ],
+      "city": "Germany",
+      "country": "Berlin",
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2025-01-14T16:50:45.215Z",
+      "__v": 0,
+      "isBanner": false,
+      "isSold": false,
+      "videos": []
+    },
+    {
+      "_id": "6786ba74a28d4e5a676c6b7a",
+      "title": "Real wood real metal dining table with 4 chairs black lacquered",
+      "country": "Rome",
+      "city": "Italy",
+      "price": 99,
+      "coverPhoto": "uploads/images/1736882366187-1.jpg",
+      "images": [
+        "uploads/images/1736882382189-2.jpg",
+        "uploads/images/1736882401858-3.jpg",
+        "uploads/images/1736882423006-4.jpg",
+        "uploads/images/1736882442549-5.jpg",
+        "uploads/images/1736882460365-6.jpg"
+      ],
+      "isBanner": true,
+      "isSold": false,
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2024-02-14T16:50:45.846Z",
+      "__v": 0,
+      "category": [
+        "6786f013aa8eec0327f17c5a"
+      ],
+      "description": "Real wood real metal dining table with 4 chairs black lacquered"
+    },
+    {
+      "_id": "6786ba9da28d4e5a676c6b7c",
+      "coverPhoto": "uploads/images/1736882733729-1.jpg",
+      "title": "Leather dining chairs 6 used + dining table",
+      "description": "Leather dining chairs 6 used + dining table",
+      "price": 130,
+      "city": "Germany",
+      "country": "Berlin",
+      "isBanner": false,
+      "isSold": false,
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2024-02-14T16:55:45.982Z",
+      "category": [
+        "6786f013aa8eec0327f17c5a"
+      ],
+      "images": [],
+      "videos": [],
+      "__v": 0
+    },
+    {
+      "_id": "6786bc2aa28d4e5a676c6b7d",
+      "title": "Real wood real metal dining table with 4 chairs black lacquered",
+      "description": "Real wood real metal dining table with 4 chairs black lacquered",
+      "coverPhoto": "uploads/images/1736883124973-1.jpg",
+      "images": [
+        "uploads/images/1736883144963-2.jpg",
+        "uploads/images/1736883163848-3.jpg",
+        "uploads/images/1736883182671-4.jpg"
+      ],
+      "city": "Germany",
+      "country": "Cologne",
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2024-02-14T16:55:45.616Z",
+      "price": 120,
+      "isBanner": false,
+      "isSold": false,
+      "category": [
+        "6786f013aa8eec0327f17c5a"
+      ]
+    },
+    {
+      "_id": "6786c579a28d4e5a676c6b93",
+      "title": "NIKE AIR FORCE 1 US 8.5 UK7.5",
+      "description": "gay'le NIKE AIR FORCE 1 US 8.5 UK7.5 size 42 for boys/teens/boys alder used, white (2)",
+      "price": "39",
+      "category": [
+        "6786effdaa8eec0327f17c54",
+        "6786f030aa8eec0327f17c60"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/nikewhite1.jpg",
+      "images": [
+        "uploads/images/nikewhite2.jpg",
+        "uploads/images/nikewhite3.jpg",
+        "uploads/images/nikewhite4.jpg",
+        "uploads/images/nikewhite5.jpg",
+        "uploads/images/nikewhite6.jpg",
+        "uploads/images/nikewhite7.jpg",
+        "uploads/images/nikewhite8.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786a39b11782b4c8f864f2d",
+      "datePosted": "2025-01-14T17:50:45.051Z"
+    },
+    {
+      "_id": "6786c579a28d4e5a676c6b94",
+      "title": "Nike AIR MAX",
+      "description": "Nike AIR MAX GR. 44.5 Mega Used white,red, black",
+      "price": "30",
+      "category": [
+        "6786effdaa8eec0327f17c54",
+        "6786f030aa8eec0327f17c60"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/niki.jpg",
+      "images": [
+        "uploads/images/niki-1.jpg",
+        "uploads/images/niki-3.jpg",
+        "uploads/images/niki-6.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bc9ea28d4e5a676c6b7e",
+      "datePosted": "2025-01-14T17:50:45.052Z"
+    },
+    {
+      "_id": "6786c579a28d4e5a676c6b95",
+      "title": "Used Running Cloud GRTrekking Shoes",
+      "description": "Pre-owned Running Cloud GRTrekking trail running shoes – perfect for sneaker collectors and enthusiasts, model D76",
+      "price": "7",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/running-1.jpg",
+      "images": [
+        "uploads/images/running-2.jpg",
+        "uploads/images/running-3.jpg",
+        "uploads/images/running-4.jpg",
+        "uploads/images/running-11.jpg",
+        "uploads/images/running-21.jpg",
+        "uploads/images/running-22.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bc9ea28d4e5a676c6b7e",
+      "datePosted": "2025-01-15T08:50:45.052Z"
+    },
+    {
+      "_id": "6786c69da28d4e5a676c6b96",
+      "title": "Funkey Digital 61-Key Keyboard Piano - Black",
+      "description": "Funkey Digital 61-Key Keyboard Piano - Black (used - very good condition)",
+      "price": "77",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/piano.jpg",
+      "images": [
+        "uploads/images/piano11.jpg",
+        "uploads/images/piano12.jpg",
+        "uploads/images/piano13.jpg"
+      ],
+      "isBanner": true,
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b80",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786c7d5a28d4e5a676c6b97",
+      "title": "Galotta 12 bass accordion with case - used condition",
+      "description": "Galotta 12 bass accordion with case - used condition",
+      "price": "75.99",
+      "category": [
+        "6786f009aa8eec0327f17c57"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/Galotta 2.jpg",
+      "images": [
+        "uploads/images/Galotta 12.jpg",
+        "uploads/images/Galotta 22.jpg",
+        "uploads/images/Galotta 33.jpg",
+        "uploads/images/Galotta 112.jpg",
+        "uploads/images/Galotta 122.jpg",
+        "uploads/images/Galotta 16.jpg",
+        "uploads/images/Galotta 15.jpg",
+        "uploads/images/Galotta 13.jpg"
+      ],
+      "isBanner": true,
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b80",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786c8f8a28d4e5a676c6b98",
+      "title": "children's racing bike",
+      "description": "14 frame children's racing bike Team GB Olympia racing bike 24 wheels",
+      "price": "30",
+      "category": [
+        "6786ef80aa8eec0327f17c51"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/bike 1.jpg",
+      "images": [
+        "uploads/images/bike 2.jpg",
+        "uploads/images/bike 3.jpg",
+        "uploads/images/bike 4.jpg",
+        "uploads/images/bike 5.jpg",
+        "uploads/images/bike 6.jpg",
+        "uploads/images/bike 7.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b80",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786c9c3a28d4e5a676c6b99",
+      "title": "Optical Mouse",
+      "description": "Logitech M185 Wireless Optical Mouse used in top condition",
+      "price": "30",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/mous 1.jpg",
+      "images": [
+        "uploads/images/mous 12.jpg",
+        "uploads/images/mous 31.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786cb4aa28d4e5a676c6b9a",
+      "title": "uRage Gaming Mouse Bullet Optical Cable Gamer Mouse Illuminated 6 Buttons 3000 dpi",
+      "description": "uRage Gaming Mouse Bullet Optical Cable Gamer Mouse Illuminated 6 Buttons 3000 dpi",
+      "price": "11.90",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/Gaming Mouse 1.jpg",
+      "images": [
+        "uploads/images/Gaming Mouse 2.jpg",
+        "uploads/images/Gaming Mouse 3.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786cc20a28d4e5a676c6b9b",
+      "title": "Memory Card",
+      "description": "Valmet M851008 Memory Card Card MOU Used UMP",
+      "price": "11.90",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Berlin",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/memory 1.jpg",
+      "images": [
+        "uploads/images/memory 2.jpg",
+        "uploads/images/memory 3.jpg",
+        "uploads/images/memory 4.jpg",
+        null,
+        "uploads/images/memory 5.jpg"
+      ],
+      "isBanner": true,
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786cd92a28d4e5a676c6b9c",
+      "title": "YUKI Hayai Mousepad",
+      "description": "YUKI AIM Hayai Mousepad - Like New, Used for Display Only",
+      "price": "79",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/Mousepad .jpg",
+      "images": [
+        "uploads/images/Mousepad 1.jpg",
+        "uploads/images/Mousepad 2.jpg",
+        "uploads/images/Mousepad 3.jpg",
+        "uploads/images/Mousepad 4.jpg",
+        "uploads/images/Mousepad 5.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786cef5a28d4e5a676c6b9d",
+      "title": "Cell Phone Bag",
+      "description": "ROCKBROS Bicycle Cell Phone Bag Daily Use Small Lightweight Portable Multifunctional ",
+      "price": "79",
+      "category": [
+        "6786f029aa8eec0327f17c5d"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/cellphonebag 1.jpg",
+      "images": [
+        "uploads/images/cellphonebag 2.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786d081a28d4e5a676c6b9e",
+      "title": "Rockbros Bicycle Cell Phone Holderused",
+      "description": "Used Rockbros Bicycle Cell Phone Holder Bag Front Frame Handlebar Size Large, Black",
+      "price": "79",
+      "category": [
+        "6786ef80aa8eec0327f17c51"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/usedphonebag.jpg",
+      "images": [
+        "uploads/images/usedphonebag 1.jpg",
+        "uploads/images/usedphonebag 2.jpg",
+        "uploads/images/usedphonebag 3.jpg",
+        "uploads/images/usedphonebag 4.jpg",
+        "uploads/images/usedphonebag 5.jpg",
+        "uploads/images/usedphonebag 6.jpg"
+      ],
+      "isBanner": true,
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786d162a28d4e5a676c6b9f",
+      "title": "used cars for sale in uk",
+      "description": "used cars for sale in uk",
+      "price": "79",
+      "category": [
+        "6786ef80aa8eec0327f17c51"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/car .jpg",
+      "images": [
+        "uploads/images/car 1.jpg",
+        "uploads/images/car 2.jpg",
+        "uploads/images/car 3.jpg",
+        "uploads/images/car 4.jpg",
+        "uploads/images/car 5.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b82",
+      "datePosted": "2025-01-15T08:50:45.053Z"
+    },
+    {
+      "_id": "6786d1eaa28d4e5a676c6ba0",
+      "title": "Mens's jeans",
+      "description": "Men's stretch jeans/jeans from H&M size W31/L32 blue used button placket Slim",
+      "price": "79",
+      "category": [
+        "6786effdaa8eec0327f17c54",
+        "6786f037aa8eec0327f17c63"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/jean .jpg",
+      "images": [
+        "uploads/images/jean 1.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b84",
+      "datePosted": "2025-01-15T09:00:45.053Z"
+    },
+    {
+      "_id": "6786d342a28d4e5a676c6ba1",
+      "title": "ladies blouse orange",
+      "description": "Römer ladies blouse orange 14 sleeveless top V-neck polyester plain gathered used",
+      "price": "79",
+      "category": [
+        "6786effdaa8eec0327f17c54",
+        "6786f03faa8eec0327f17c66"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/blouse .jpg",
+      "images": [
+        "uploads/images/blouse 1.jpg",
+        "uploads/images/blouse 2.jpg",
+        "uploads/images/blouse 3.jpg",
+        "uploads/images/blouse 4.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b86",
+      "datePosted": "2025-01-15T09:00:45.053Z"
+    },
+    {
+      "_id": "6786d3dca28d4e5a676c6ba2",
+      "title": "Stuffed animals/plush toys",
+      "description": "2 years used doll, very clean",
+      "price": "79",
+      "category": [
+        "6786f045aa8eec0327f17c69"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/toy.jpg",
+      "images": [],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b88",
+      "datePosted": "2025-01-15T09:00:45.053Z"
+    },
+    {
+      "_id": "6786d443a28d4e5a676c6ba3",
+      "title": "Stuffed animals/plush toys",
+      "description": "2 years used doll, very clean",
+      "price": "79",
+      "category": [
+        "6786f045aa8eec0327f17c69"
+      ],
+      "city": "Cologn",
+      "country": "Germany",
+      "coverPhoto": "uploads/images/car toy.jpg",
+      "images": [
+        "uploads/images/car toy2.jpg"
+      ],
+      "isBanner": "false",
+      "isSold": "false",
+      "userId": "6786bd85a28d4e5a676c6b87",
+      "datePosted": "2025-01-15T09:00:45.054Z"
+    }
+  ],
+  "categories": [
+    {
+      "_id": "6786ef80aa8eec0327f17c51",
+      "name": "vehicle",
+      "__v": 0
+    },
+    {
+      "_id": "6786effdaa8eec0327f17c54",
+      "name": "Clothes",
+      "__v": 0
+    },
+    {
+      "_id": "6786f009aa8eec0327f17c57",
+      "name": "Musical Instruments",
+      "__v": 0
+    },
+    {
+      "_id": "6786f013aa8eec0327f17c5a",
+      "name": "Furniture",
+      "__v": 0
+    },
+    {
+      "_id": "6786f029aa8eec0327f17c5d",
+      "name": "computer",
+      "__v": 0
+    },
+    {
+      "_id": "6786f030aa8eec0327f17c60",
+      "name": "Shoes",
+      "__v": 0
+    },
+    {
+      "_id": "6786f037aa8eec0327f17c63",
+      "name": "Jeans",
+      "__v": 0
+    },
+    {
+      "_id": "6786f03faa8eec0327f17c66",
+      "name": "Blouse",
+      "__v": 0
+    },
+    {
+      "_id": "6786f045aa8eec0327f17c69",
+      "name": "Toys",
+      "__v": 0
+    }
+  ],
+  "users": [
+    {
+      "_id": "6786a39b11782b4c8f864f2d",
+      "email": "admin@gmail.com",
+      "profilePicUrl": "uploads/images/1736876392090-1.png",
+      "contactInfo": "014565430992",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "isAdmin": true,
+      "__v": 0,
+      "items": []
+    },
+    {
+      "_id": "6786bc9ea28d4e5a676c6b7e",
+      "email": "nic@gmail.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "isAdmin": false,
+      "__v": 0,
+      "profilePicUrl": "uploads/images/Bill_Gates.jpg",
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b7f",
+      "email": "user1@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Chris_Hughes.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b80",
+      "email": "user2@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Dustin_Moskovitz.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b81",
+      "email": "user3@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/images.jpeg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b82",
+      "email": "user4@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/job.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b83",
+      "email": "user5@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Lerdorf.jpeg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b84",
+      "email": "user6@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Paul_.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b85",
+      "email": "user7@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Saverin.jpeg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b86",
+      "email": "user8@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Steve_Wozniak.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b87",
+      "email": "user9@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Taylor-Otwel.jpg",
+      "isAdmin": false,
+      "items": []
+    },
+    {
+      "_id": "6786bd85a28d4e5a676c6b88",
+      "email": "user10@example.com",
+      "contactInfo": "017898780433",
+      "password": "$2b$10$1zcZ1jux1PXV0aRx8uLLoeFVGfeovFy2tKcYm3M3l9KJcDe91NGIW",
+      "profilePicUrl": "uploads/images/Tom_Hanks.jpg",
+      "isAdmin": false,
+      "items": []
+    }
+  ]
+}

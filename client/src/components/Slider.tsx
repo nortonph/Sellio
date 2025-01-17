@@ -5,7 +5,7 @@ import { Item as ItemType } from '../types/Item';
 
 // FIXME
 
-import 'swiper/swiper.css';
+import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
