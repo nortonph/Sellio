@@ -90,7 +90,7 @@ function Home() {
 
           {items && items.length > 0 ? (
               items.map((item) => (
-                <Item key={item?.id} item={item} />
+                <Item key={item?._id} item={item} />
               ))
             ) : (
               <p>No items available.</p>
