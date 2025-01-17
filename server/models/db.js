@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const dbconnect = require("../config/dbconnect");
 
-require("dotenv").config({ path: "../config.env" });
+require('dotenv').config({ path: 'config.env' });
 
 const DB_PROT = process.env.DB_PROT || "mongodb";
 const DB_HOST = process.env.DB_HOST || "localhost";
