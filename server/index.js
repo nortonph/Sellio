@@ -1,22 +1,24 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
+const express = require("express");
+const cors = require("cors");
+const path = require("path");
 const app = express();
-require('dotenv').config({ path: './config.env' });
+require("dotenv").config({ path: "./config.env" });
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
-const fileUpload = require('express-fileupload');
-const rateLimit = require('express-rate-limit');
+const fileUpload = require("express-fileupload");
+const rateLimit = require("express-rate-limit");
 
-const adminRouter = require('./routers/admin.js');
-const publicRouter = require('./routers/public.js');
-const authRouter = require('./routers/auth.js');
-const userRouter = require('./routers/user.js');
+const adminRouter = require("./routers/admin.js");
+const publicRouter = require("./routers/public.js");
+const authRouter = require("./routers/auth.js");
+const userRouter = require("./routers/user.js");
 
-app.use('/uploads/images', express.static(path.join(__dirname, 'uploads/images')));
+app.use(
+  "/uploads/images",
+  express.static(path.join(__dirname, "uploads/images"))
+);
 
 const corsConfig = {
-  origin: 'http://localhost:5173',
+  origin: "http://localhost:5173",
   credentials: true,
 };
 
@@ -37,8 +39,8 @@ const generalLimiter = rateLimit({
 
 app.use(generalLimiter);
 
-app.get('*', (req, res) => {
-  res.status(404).send('Sorry, Page not found');
+app.get("*", (req, res) => {
+  res.status(404).send("Sorry, Page not found");
 });
 
 const server = app.listen(SERVER_PORT, (err) => {
