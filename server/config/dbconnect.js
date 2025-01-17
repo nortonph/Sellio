@@ -6,11 +6,11 @@ require('dotenv').config({
 });
 
 function dbconnect(
-  DB_PROT = 'mongodb',
-  DB_SRV = '',
-  DB_HOST = 'localhost',
-  DB_PORT = '27017',
-  DB_NAME = 'sellio'
+  DB_PROT,
+  DB_SRV,
+  DB_HOST,
+  DB_PORT,
+  DB_NAME
 ) {
   if (DB_SRV !== '') {
     return `${DB_PROT}://${DB_SRV}@${DB_PORT}/${DB_NAME}`;
