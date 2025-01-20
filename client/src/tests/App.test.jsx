@@ -61,7 +61,6 @@ describe('Home Component', () => {
         <Home />
       </MemoryRouter>
     )
-    
     screen.debug();
     await waitFor(() => {
       expect(screen.getByText("Tanglewood TW300 Akustikgitarre"));
