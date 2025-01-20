@@ -6,7 +6,7 @@ import Item from '../components/Item';
 import NewestSlider from '../components/NewestSlider';
 import Pagination from '../components/Pagination';
 import Slider from '../components/Slider';
-import { Item as ItemType } from '../types/Item';
+import type { Item as ItemType } from '../types/Item';
 
 
 function Home() {
@@ -39,6 +39,7 @@ function Home() {
           throw new Error('Failed to fetch items');
         }
         const data = await response.json();
+        console.log(data);
         setItems(data.items);
         setTotalPages(data.totalPages);
         setItemsPerPage(data.itemsPerPage);
