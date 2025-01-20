@@ -65,7 +65,7 @@ function Slider({banners} : SliderProps) {
       </Swiper>
 
       {/* Add custom CSS to change arrow and pagination colors */}
-      <style jsx>{`
+      <style>{`
         .swiper-button-next,
         .swiper-button-prev {
           color: white; /* Change arrow color to white */
