@@ -37,6 +37,7 @@ function Home() {
           throw new Error('Failed to fetch items');
         }
         const data = await response.json();
+        console.log(data);
         setItems(data.items);
         setTotalPages(data.totalPages);
         setItemsPerPage(data.itemsPerPage);
