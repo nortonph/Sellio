@@ -43,4 +43,4 @@ async function importFromJson() {
   }
 }
 
-importFromJson();
+module.exports = importFromJson();
