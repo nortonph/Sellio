@@ -4,7 +4,10 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test mocha",
-    "start": "node index.js"
+    "seed": "NODE_ENV=test node seed/importFromJson.js",
+    "start": "node index.js",
+    "start_test": "NODE_ENV=test node index.js",
+    "start_all": "NODE_ENV=test node index.js vite ../client/"
   },
   "author": "",
   "license": "ISC",
