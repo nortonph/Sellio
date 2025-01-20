@@ -46,7 +46,6 @@ beforeEach(() => {
   });
 });
 
-<<<<<<< HEAD
 describe('App', () => {
   it('Display Home and fetch data', async () => {
     render(<MemoryRouter>
@@ -70,12 +69,11 @@ describe('Home Component', () => {
     const images = screen.getAllByRole('img');
     expect(images).toHaveLength(mockItemsData.items.length);
   })
-=======
+})
 describe("App", () => {
   it("fetches and displays all titles", async () => {
     render(<App />);
     screen.debug();
     
   });
->>>>>>> 6d2f1c4 (fix: bug fix)
 })
