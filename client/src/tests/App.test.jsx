@@ -14,8 +14,9 @@ beforeEach(() => {
 });
 
 describe("App", () => {
-  it("fetches and displays all titles", async () => {
+  it("Display App and fetch data", async () => {
     render(<App />);
+    
     screen.debug();
     
   });
