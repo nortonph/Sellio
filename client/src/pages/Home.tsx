@@ -8,6 +8,7 @@ import Pagination from '../components/Pagination';
 import Slider from '../components/Slider';
 import { Item as ItemType } from '../types/Item';
 
+
 function Home() {
   const [items, setItems] = useState<ItemType[]>([]);
   const [banners, setBanners] = useState<ItemType[]>([]);
@@ -33,11 +34,11 @@ function Home() {
     const fetchItems = async () => {
       try {
         const response = await fetch('http://localhost:3001/');
+        
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
         const data = await response.json();
-        console.log(data);
         setItems(data.items);
         setTotalPages(data.totalPages);
         setItemsPerPage(data.itemsPerPage);
@@ -89,7 +90,7 @@ function Home() {
       <div className="flex flex-col gap-3 px-20 py-5">
         <Slider banners={banners} />
         <Filters />
-
+        
         <h1 className="font-bold mt-10">Second-hand Stuff for You!</h1>
 
         <section className="list-of-items grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
