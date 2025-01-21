@@ -4,7 +4,8 @@
   "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --recursive",
-    "seed": "NODE_ENV=test node seed/importFromJson.js",
+    "seed": "node seed/importFromJson.js",
+    "seed_test": "NODE_ENV=test node seed/importFromJson.js",
     "start": "node index.js",
     "start_test": "NODE_ENV=test node index.js",
     "start_test_all": "node index.js & node ../client/vite"

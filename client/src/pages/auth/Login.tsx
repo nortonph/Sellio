@@ -31,7 +31,7 @@ function Login() {
       localStorage.setItem('accessToken', accessToken);
 
       // Redirect to the home page? Or where? There is no profile id when loggin in
-      navigate('/');
+      // navigate('/');
     } catch (error: any) {
       setErrorMessage(error.message);
     }
