@@ -6,7 +6,7 @@ const Category = require('../models/Category');
 const User = require('../models/User');
 
 function waitForConnection() {
-  console.log(mongoose.connection);
+  // console.log(mongoose.connection);
   return new Promise((resolve, reject) => {
     if (mongoose.connection.readyState === 1) {
       console.log('DB Connection is ready');

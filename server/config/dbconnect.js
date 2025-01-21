@@ -1,7 +1,8 @@
 const path = require('node:path');
 
+// node needs to be started in directory server/ for this import to work
 require('dotenv').config({
-  path: path.join(__dirname,
+  path: path.join(process.cwd(),
     process.env.NODE_ENV === 'test'
       ? '.env.test.local'
       : '.env.development.local',
