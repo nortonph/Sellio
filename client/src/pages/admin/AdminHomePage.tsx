@@ -18,10 +18,17 @@ function AdminHomePage() {
     link.rel = "icon";
     link.href = "/assets/images/sellio-48.png"; 
     document.head.appendChild(link);
+
+    const token = localStorage.getItem('accessToken');
   
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:3001/admin/user');
+        const response = await fetch('http://localhost:3001/admin/user', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
@@ -34,7 +41,12 @@ function AdminHomePage() {
 
     const fetchItems = async () => {
       try {
-        const response = await fetch('http://localhost:3001/admin/items');
+        const response = await fetch('http://localhost:3001/admin/items', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
