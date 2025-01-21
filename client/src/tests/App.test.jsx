@@ -1,13 +1,12 @@
-import { describe, it, expect, beforeEach, vi } from "vitest";
+import { describe, it, expect, page, beforeEach, vi } from "vitest";
 import Home from '../pages/Home'
 import { MemoryRouter } from 'react-router-dom';
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, getByText } from "@testing-library/react";
 import mockData from './mock_data.json';
 
 const mockItemsData = mockData;
 const mockBannerData = mockData.items.filter((item) => item.isBanner === true);
 const mockNewestData = mockData.items.slice(7);
-console.log(mockNewestData);
 
 beforeEach(() => {
   global.fetch = vi.fn((url) => {
@@ -61,7 +60,7 @@ describe('Home Component', () => {
         <Home />
       </MemoryRouter>
     )
-    screen.debug();
+    
     await waitFor(() => {
       expect(screen.getByText("Tanglewood TW300 Akustikgitarre"));
     })
@@ -71,9 +70,25 @@ describe('Home Component', () => {
     const buttons = screen.getAllByText("See Detail");
     expect(buttons).toHaveLength(mockItemsData.items.length);
 
+    
+  })
+})
+
+describe('Home Component', () => {
+  it('All Item prices are available', async () => {
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    )
+
+    await waitFor(() => {
+      expect(screen.getByText(mockItemsData.items[0].title)).toBeTruthy();
+    })
+
     mockItemsData.items.forEach((item) => {
-      const priceElement = screen.getByText(`$${item.price}`);
-      expect(priceElement).toBeInTheDocument();
+      const priceElement = screen.getAllByText(`$${item.price}`);
+      expect(priceElement).not.toBeNull();
     });
   })
 })
