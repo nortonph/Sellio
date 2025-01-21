@@ -18,22 +18,27 @@ const app = express();
 app.use(express.json());
 app.use(router);
 const request = supertest(app);
-const server = startServer(app);
+let server;
 
 describe('TESTING public route', () => {
   before(async () => {
+    server = startServer(app);
     await reSeedDB();
   });
   after(() => {
-    mongoose.connection.close();
+    // mongoose.connection.close();
     server.close();
   });
   describe('GET /   => itemController.getItems', () => {
-    it('gets all 22 items (in a page of up to 30 items)', async function () {
+    it('gets a page of x items (x out of all 22 items)', async function () {
       const response = await request.get('/');
       expect(response.status).to.equal(200);
-      expect(response.body.items.length).to.equal(22);
-      // todo: test paging
+      if (response.body.itemsPerPage < response.body.totalItems) {
+        expect(response.body.items.length).to.equal(response.body.itemsPerPage);
+      } else {
+        expect(response.body.items.length).to.equal(response.body.totalItems);
+      }
+      expect(response.body.totalItems).to.equal(22);
     });
   });
   describe('GET /banners   => itemController.getBannerItems', () => {

@@ -2,7 +2,7 @@ require('dotenv').config({ path: '.env.test.local' });
 const fs = require('fs');
 const mongoose = require('mongoose');
 const dbconnect = require('../config/dbconnect');
-const SERVER_PORT = 3003; // different port for test server
+const SERVER_PORT = 3002; // different port for test server
 // data models
 const Item = require('../models/Item');
 const Category = require('../models/Category');
