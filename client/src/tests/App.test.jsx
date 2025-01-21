@@ -66,13 +66,14 @@ describe('Home Component', () => {
       expect(screen.getByText("Tanglewood TW300 Akustikgitarre"));
     })
     const images = screen.getAllByRole('img');
-    expect(images).toHaveLength(mockItemsData.items.length);
+    expect(images).toHaveLength(mockItemsData.items.length + 6); // 6 for Get NewestItem limit
+  
+    const buttons = screen.getAllByText("See Detail");
+    expect(buttons).toHaveLength(mockItemsData.items.length);
+
+    mockItemsData.items.forEach((item) => {
+      const priceElement = screen.getByText(`$${item.price}`);
+      expect(priceElement).toBeInTheDocument();
+    });
   })
-})
-describe("App", () => {
-  it("fetches and displays all titles", async () => {
-    render(<App />);
-    screen.debug();
-    
-  });
 })
