@@ -17,25 +17,34 @@ const getItem = async (req, res) => {
 
 const getItems = async (req, res) => {
   try {
-    const { page = 1 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
 
-    const pageNumber = parseInt(page);
-    const limitNumber = 30;
+    const pageNumber = parseInt(page, 10);
+    const limitNumber = parseInt(limit, 10);
 
+    if (
+      isNaN(pageNumber) ||
+      isNaN(limitNumber) ||
+      pageNumber < 1 ||
+      limitNumber < 1
+    ) {
+      return res.status(400).json({ error: 'Invalid pagination parameters' });
+    }
+
+    const offset = (pageNumber - 1) * limitNumber;
     const items = await Item.find()
-      .skip((pageNumber - 1) * limitNumber)
+      .skip(offset)
       .limit(limitNumber);
 
     const totalItems = await Item.countDocuments();
-
     const totalPages = Math.ceil(totalItems / limitNumber);
 
     res.status(200).send({
       currentPage: pageNumber,
-      totalPages,
-      totalItems,
+      totalPages: totalPages,
+      totalItems: totalItems,
       itemsPerPage: limitNumber,
-      items,
+      items: items,
     });
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
