@@ -1,8 +1,12 @@
 require('dotenv').config({ path: '.env.test.local' });
+const fs = require('fs');
 const mongoose = require('mongoose');
 const dbconnect = require('../config/dbconnect');
-const importFromJson = require('../seed/importFromJson'); // seed DB
 const SERVER_PORT = process.env.SERVER_PORT || 3001;
+// data models
+const Item = require('../models/Item');
+const Category = require('../models/Category');
+const User = require('../models/User');
 
 async function connectToDB() {
   // connect to mongoDB
@@ -19,17 +23,25 @@ async function connectToDB() {
   return mongoose;
 }
 
-async function reSeedDB(mongoose) {
+async function reSeedDB() {
+  // const mongoose = await connectToDB();
+  await clearDB(mongoose);
+  // load mock data from json and fill DB
+  const data = JSON.parse(fs.readFileSync('seed/mockData.json', 'utf-8'));
+  const { items, categories, users } = data;
+  await Item.insertMany(items);
+  await Category.insertMany(categories);
+  await User.insertMany(users);
+  console.log('imported mock data from .json');
+}
+
+async function clearDB(mongoose) {
   // drop all collections
-  console.log(mongoose.connection.collections)
   const collections = mongoose.connection.collections;
   for (let key in collections) {
     console.log('dropping collection ' + key);
     await collections[key].drop();
   }
-
-  // seed DB
-  importFromJson();
 }
 
 function startServer(app) {
@@ -42,6 +54,5 @@ function startServer(app) {
   });
   return server;
 }
-
 
 module.exports = { connectToDB, reSeedDB, startServer };
