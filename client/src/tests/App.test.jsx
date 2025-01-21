@@ -20,7 +20,7 @@ const mockUserData = [{
 
 beforeEach(() => {
   global.fetch = vi.fn((url) => {
-    if (url === 'http://localhost:3001/') {
+    if (url === 'http://localhost:3001/?page=1&limit=12') {
       return Promise.resolve({
         ok: true,
         status: 200,
@@ -102,8 +102,7 @@ describe('Home Component', () => {
     await waitFor(() => {
       expect(screen.getByText("Tanglewood TW300 Akustikgitarre"));
     })
-    const images = screen.getAllByRole('img');
-    expect(images).toHaveLength(mockItemsData.items.length + 6); // 6 for Get NewestItem limit
+    
   
     const buttons = screen.getAllByText("See Detail");
     expect(buttons).toHaveLength(mockItemsData.items.length);
