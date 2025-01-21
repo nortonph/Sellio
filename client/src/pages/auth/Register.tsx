@@ -45,10 +45,7 @@ function Register() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form 
-        onSubmit={handleSubmit} 
-        className="bg-white p-6 rounded shadow-md w-full max-w-sm"
-      >
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-sm">
         <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
         {errorMessage && (
           <div className="mb-4 text-red-500 text-center">
@@ -70,7 +67,7 @@ function Register() {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 mb-2" htmlFor="contactInfo">
-            Contactinfo
+            Contact Info
           </label>
           <input
             type="text"
@@ -83,7 +80,7 @@ function Register() {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 mb-2" htmlFor="password">
-            Passwort
+          Password
           </label>
           <input
             type="password"
@@ -96,7 +93,7 @@ function Register() {
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 mb-2" htmlFor="confirmPassword">
-            Passwort bestätigen
+            Comfirm Password
           </label>
           <input
             type="password"
@@ -107,10 +104,7 @@ function Register() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition-colors"
-        >
+        <button type="submit" className="w-full bg-green-900 text-white py-2 rounded hover:bg-green-600 transition-colors">
           Register
         </button>
       </form>
