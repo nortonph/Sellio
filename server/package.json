@@ -7,7 +7,7 @@
     "seed": "NODE_ENV=test node seed/importFromJson.js",
     "start": "node index.js",
     "start_test": "NODE_ENV=test node index.js",
-    "start_all": "NODE_ENV=test node index.js vite ../client/"
+    "start_test_all": "node index.js & node ../client/vite"
   },
   "author": "",
   "license": "ISC",
