@@ -12,9 +12,11 @@ function Home() {
   const [items, setItems] = useState<ItemType[]>([]);
   const [banners, setBanners] = useState<ItemType[]>([]);
   const [newest, setNewest] = useState<ItemType[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
-  const [totalPages, setTotalPages] = useState(1);
+  const [pageData, setPageData] = useState({
+    currentPage: 1,
+    totalPages: 0,
+    itemsPerPage: 12,
+  });
 
 
   useEffect(() => {
@@ -31,16 +33,20 @@ function Home() {
     }
 
     const fetchItems = async () => {
+      console.log("Fetching new Page: ", pageData);
       try {
-        const response = await fetch('http://localhost:3001/');
+        
+        const response = await fetch(`http://localhost:3001/?page=${pageData.currentPage}&limit=${pageData.itemsPerPage || 10}`);
         
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
         const data = await response.json();
         setItems(data.items);
-        setTotalPages(data.totalPages);
-        setItemsPerPage(data.itemsPerPage);
+        setPageData((prev) => ({
+          ...prev,
+          totalPages: data.totalPages,
+        }));
       } catch (error) {
         console.error('Error fetching items:', error);
       }
@@ -75,11 +81,15 @@ function Home() {
     fetchItems();
     fetchBanners();
     fetchNewest();
-  }, [currentPage, itemsPerPage]);
+  }, [pageData.currentPage]);
 
   const handlePageChange = (newPage: number) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
+    if (newPage > 0 && newPage <= pageData.totalPages) {
+      pageData.currentPage = newPage;
+      setPageData((prev) => ({
+        ...prev,
+        currentPage: newPage,
+      }));
     }
   };
 
@@ -104,7 +114,7 @@ function Home() {
             
           </section>
 
-          <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={handlePageChange} />
+          <Pagination totalPages={pageData.totalPages} handlePageChange={handlePageChange} />
 
         <NewestSlider recentItems={newest} />
       </div>
