@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha",
+    "test": "NODE_ENV=test mocha --recursive",
     "seed": "NODE_ENV=test node seed/importFromJson.js",
     "start": "node index.js",
     "start_test": "NODE_ENV=test node index.js",
