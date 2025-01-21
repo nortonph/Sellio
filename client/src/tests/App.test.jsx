@@ -132,7 +132,7 @@ describe('Home Component', () => {
 })
 
 describe('Navigate to SinglePage', () => {
-  it("navigates to singlePage and displays correct details", async () => {
+  it("See details button navigates to singlePage of item and displays details", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <Routes>
