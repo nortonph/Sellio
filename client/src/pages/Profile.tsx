@@ -32,6 +32,7 @@ function Profile() {
 
 
   useEffect(() => {
+    document.title = "Profile - Sellio";
     const fetchItems = async () => {
       try {
         const response = await fetch(`http://localhost:3001/items/${userId}`);

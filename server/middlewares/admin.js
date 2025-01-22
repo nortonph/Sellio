@@ -9,7 +9,7 @@ const User = require('../models/User');
 const SECRET_KEY = process.env.SECRET_KEY || 'default';
 
 const adminMiddleware = async (req, res, next) => {
-  // next(); and comment rest to skip isAdmin check
+  // next(); // and comment rest to skip isAdmin check
 
   const authHeaders = req.headers['authorization'];
 
