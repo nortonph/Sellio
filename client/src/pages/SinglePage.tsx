@@ -135,10 +135,10 @@ function SinglePage() {
                 </div>
 
                 <button
-                  onClick={() => window.location.href = '/chat'}
+                  onClick={() => window.location.href = '/checkout'}
                   className="w-full py-3 text-white bg-green-900 rounded-lg shadow-md hover:bg-green-800"
                 >
-                  Go to Chat
+                  Buy
                 </button>
             </div>
           </div>
