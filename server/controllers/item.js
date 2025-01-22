@@ -152,6 +152,8 @@ const updateItem = async (req, res) => {
 };
 
 const uploadMedia = async (req, res) => {
+  console.log('------------------')
+  console.log(req)
   try {
     console.log(req.file);
     if (!req.files || !req.files.media) {
