@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../pages/auth/LoginForm';
+import RegisterForm from '../pages/auth/RegisterForm';
 import LoginLogout from './LoginLogout';
 
 function Header() {
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(false);
+  const [formType, setFormType] = useState<'login' | 'register'>('login');
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -16,6 +18,7 @@ function Header() {
 
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
+    setFormType('login');
   };
 
   return (
@@ -33,7 +36,6 @@ function Header() {
         <div className='flex items-center text-white text-xs'>Get 30% off on your first purchase</div>
 
         <div className='items-center flex flex-row gap-2 text-xs'>
-
           <div className='flex flex-row gap-1 text-white items-center'>
             <span className='items-center'>Eng</span>
             <span className='text-xs items-center'>
@@ -52,13 +54,10 @@ function Header() {
             </span>
           </div>
         </div>
-
       </div>
 
       <div className='flex flex-col gap-3 text-green-950 px-20 py-5'>
-
         <section className='flex flex-row  justify-end gap-4 cursor-pointer'>
-
           <a href="/" className='flex flex-row items-center '>
             <span>
               <img src="/assets/images/sellio-48.png" alt="Sellio Logo" />
@@ -92,22 +91,19 @@ function Header() {
           </section>
 
           <section className='flex flex-row '>
-            <div className='flex flex-row items-center hover:text-gray-900 cursor-pointer font-bold' onClick={toggleLoginForm}>
-            <section className='flex flex-row '>
-              <LoginLogout onOpenLoginForm={toggleLoginForm} />
-            </section>
-            </div>
+            <LoginLogout onOpenLoginForm={toggleLoginForm} />
 
             {showLoginForm && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" style={{ zIndex: 1000 }}>
-                <div className="bg-white p-6 rounded shadow-md w-full max-w-sm relative">
-                  <button
-                    className="absolute top-2 right-2 text-gray-500"
-                    onClick={toggleLoginForm}
-                  >
+              <div onClick={toggleLoginForm} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" style={{ zIndex: 1000 }}>
+                <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded shadow-md w-full max-w-sm relative">
+                  <button className="absolute top-2 right-2 text-gray-500" onClick={toggleLoginForm}>
                     ×
                   </button>
-                  <LoginForm onClose={toggleLoginForm} />
+                  {formType === 'login' ? (
+                    <LoginForm onClose={toggleLoginForm} onSwitchToRegister={() => setFormType('register')}/>
+                  ) : (
+                    <RegisterForm onClose={toggleLoginForm} onSwitchToLogin={() => setFormType('login')}/>
+                  )}
                 </div>
               </div>
             )}
@@ -121,10 +117,8 @@ function Header() {
               <span>Account</span>
             </div>
           </section>
-
         </section>
       </div>
-
     </>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function parseJwt(token: string) {
   try {
@@ -14,7 +13,6 @@ interface LoginLogoutProps {
 }
 
 function LoginLogout({ onOpenLoginForm }: LoginLogoutProps) {
-  const navigate = useNavigate();
   const token = localStorage.getItem('accessToken');
   const user = token ? parseJwt(token) : null;
 
@@ -24,21 +22,23 @@ function LoginLogout({ onOpenLoginForm }: LoginLogoutProps) {
   };
 
   if (user) {
+    // if logged in
     return (
       <div className='flex flex-row items-center font-bold'>
         <a href={`/profile/${user._id}`} className='flex flex-row items-center hover:text-gray-900 cursor-pointer'>
-          <span>
-            Profile
-          </span>
-          <span>{user.email}</span>
+          <span>Profile</span>
+          {/* <span>{user.email}</span> */}
         </a>
-        <span className='mx-2'>|</span>
+        <span className='mx-2'>
+          |
+        </span>
         <div onClick={handleLogout} className='hover:text-gray-900 cursor-pointer'>
           Logout
         </div>
       </div>
     );
   } else {
+    // else when not logged in
     return (
       <div className='flex flex-row items-center hover:text-gray-900 cursor-pointer font-bold' onClick={onOpenLoginForm}>
         <span>

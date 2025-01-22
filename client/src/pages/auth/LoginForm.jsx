@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function LoginForm({ onClose }) {
+function LoginForm({ onClose, onSwitchToRegister }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
@@ -74,9 +74,9 @@ function LoginForm({ onClose }) {
       </button>
       <div className="mt-4 text-center text-sm">
         No Account? {' '}
-        <Link to="/register" className="text-blue-500 underline" onClick={onClose}>
+        <span onClick={onSwitchToRegister} className="text-blue-500 underline cursor-pointer">
           Register
-        </Link>
+        </span>
       </div>
     </form>
   );

@@ -8,7 +8,7 @@ function Profile() {
   const navigate = useNavigate();
 
   const [user, setUser] = useState<User | null>(null);
-  const [items, setItems] = useState<Item[] | null>(null);
+  const [items, setItems] = useState<Item[]>([]);
 
   // Fetch the user data when the component loads
   useEffect(() => {
