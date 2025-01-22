@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 
-function LoginForm({ onClose, onSwitchToRegister }) {
+function LoginForm({ onClose, onSwitchToRegister, onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
@@ -28,6 +28,10 @@ function LoginForm({ onClose, onSwitchToRegister }) {
       const data = await response.json();
       const { accessToken } = data;
       localStorage.setItem('accessToken', accessToken);
+
+      if (onLogin) {
+        onLogin(accessToken);
+      }
 
       if (onClose) {
         onClose();

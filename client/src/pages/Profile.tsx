@@ -58,6 +58,8 @@ function Profile() {
   };
 
   const url = 'http://localhost:3001';
+  const defaultProfilePic = '/assets/images/sellio-96.png';
+
   if (!user) {
     return <p>Loading...</p>;
   }
@@ -69,11 +71,13 @@ function Profile() {
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
 
           <div className="flex items-center bg-green-900 text-white px-6 py-4">
-            <img
-              src={`${url}/${user.profilePicUrl}`}
-              alt="Profile"
-              className="w-16 h-16 rounded-full border-4 border-white"
-            />
+            <div className="w-16 h-16 rounded-full bg-white border-4 border-white flex items-center justify-center overflow-hidden">
+              <img
+                src={user.profilePicUrl ? `${url}/${user.profilePicUrl}` : defaultProfilePic}
+                alt="Profilepicture"
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
             <div className="ml-4">
               <h1 className="text-2xl font-bold">{user.email}</h1>
               <p className="text-sm">{user.contactInfo}</p>
@@ -94,10 +98,8 @@ function Profile() {
               </li>
               <li className="flex justify-between border-b py-2">
                 <span className="text-gray-600">Admin Status:</span>
-                <span
-                  className={`font-bold ${user.isAdmin ? "text-green-600" : "text-red-600"}`}
-                >
-                  {user.isAdmin ? "Yes" : "No"}
+                <span className={`font-bold ${user.isAdmin ? "text-green-600" : "text-red-600"}`}>
+                  {!user.isAdmin ? "No" : <a href="/admin" className="hover:underline">Yes</a>}
                 </span>
               </li>
             </ul>

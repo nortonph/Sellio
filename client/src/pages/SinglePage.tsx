@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import BackButton from '../components/BackButton';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import SinglePageSlider from '../components/SinglePageSlider';
 import { Category } from '../types/Category';
 import { Item as ItemType } from '../types/Item';

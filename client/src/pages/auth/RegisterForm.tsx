@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
-function RegisterForm({ onSwitchToLogin, onClose }: { onSwitchToLogin: () => void, onClose?: () => void }) {
+function RegisterForm({ onSwitchToLogin, onClose, onLogin }: {
+  onSwitchToLogin: () => void,
+  onClose?: () => void,
+  onLogin: (token: string) => void
+}) {
   const [email, setEmail] = useState('');
   const [contactInfo, setContactInfo] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +32,22 @@ function RegisterForm({ onSwitchToLogin, onClose }: { onSwitchToLogin: () => voi
         throw new Error(errorData.message || 'Error registering user');
       }
 
-      if(onClose) onClose();
+      // Automatically log in after registering
+      const loginResponse = await fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!loginResponse.ok) {
+        throw new Error('Failed to log in after registration');
+      }
+
+      const loginData = await loginResponse.json();
+      const { accessToken } = loginData;
+      onLogin(accessToken);
+
+      if (onClose) onClose();
     } catch (error: any) {
       setErrorMessage(error.message);
     }

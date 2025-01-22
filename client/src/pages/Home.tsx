@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Filters from '../components/Filters';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Item from '../components/Item';
 import NewestSlider from '../components/NewestSlider';
 import Pagination from '../components/Pagination';

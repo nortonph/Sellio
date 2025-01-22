@@ -9,6 +9,7 @@ function Header() {
   const navigate = useNavigate();
   const [showLoginForm, setShowLoginForm] = useState(false);
   const [formType, setFormType] = useState<'login' | 'register'>('login');
+  const [authToken, setAuthToken] = useState<string | null>(null);
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
@@ -19,6 +20,12 @@ function Header() {
   const toggleLoginForm = () => {
     setShowLoginForm(!showLoginForm);
     setFormType('login');
+  };
+
+  const handleLogin = (token: string) => {
+    setAuthToken(token);
+    localStorage.setItem('accessToken', token);
+    setShowLoginForm(false);
   };
 
   return (
@@ -100,9 +107,9 @@ function Header() {
                     ×
                   </button>
                   {formType === 'login' ? (
-                    <LoginForm onClose={toggleLoginForm} onSwitchToRegister={() => setFormType('register')}/>
+                    <LoginForm onClose={toggleLoginForm} onSwitchToRegister={() => setFormType('register')} onLogin={(token) => { setAuthToken(token); toggleLoginForm() }} />
                   ) : (
-                    <RegisterForm onClose={toggleLoginForm} onSwitchToLogin={() => setFormType('login')}/>
+                    <RegisterForm onClose={toggleLoginForm} onSwitchToLogin={() => setFormType('login')} onLogin={handleLogin} />
                   )}
                 </div>
               </div>
