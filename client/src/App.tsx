@@ -9,6 +9,7 @@ import AdminHomePage from './pages/admin/AdminHomePage';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import About from './pages/About';
+import Faq from './pages/Faq';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/add-item" element={<AddItem />} />
         <Route path="/profile/:userId" element={<Profile />} />
         <Route path="/admin" element={<AdminHomePage />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
     </Router>
   );
