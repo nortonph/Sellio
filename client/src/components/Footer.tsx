@@ -1,10 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 function Footer(){
+  const navigate = useNavigate();
+  function handleButtonClick () {
+    navigate(`/about`); 
+  }
+
   return (
     <>
       <section className='footer grid grid-cols-3 mx-10 mb-20'>
         <div className="category flex flex-col flex-wrap text-xs text-green-900">
           <h1 className='font-bold my-5 text-lg text-green-950'>COMPANY</h1>
-          <span className='p-1 hover:text-green-950  cursor-pointer'>About us</span>
+          <span onClick={handleButtonClick} className='p-1 hover:text-green-950 cursor-pointer'>About us</span>
           <span className='p-1 hover:text-green-950  cursor-pointer'>FAQs</span>
 
         </div>
