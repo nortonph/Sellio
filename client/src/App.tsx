@@ -6,6 +6,7 @@ import Profile from './pages/Profile';
 import Search from './pages/Search';
 import SinglePage from './pages/SinglePage';
 import AdminHomePage from './pages/admin/AdminHomePage';
+import About from './pages/About';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Route path="/item/:id" element={<SinglePage />} />
 
         <Route path="/search" element={<Search />} />
-        
+        <Route path="/about" element={<About />} />
         <Route path="/add-item" element={<AddItem />} />
         <Route path="/profile/:userId" element={<Profile />} />
         <Route path="/admin" element={<AdminHomePage />} />
