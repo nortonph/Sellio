@@ -6,7 +6,7 @@ const itemController = require('../controllers/item');
 const authMiddleware =
   process.env.NODE_ENV === 'test'
     ? (req, _res, next) => {
-        req.user = JSON.parse(req.headers.testuser);
+        if (req.headers.testuser) req.user = JSON.parse(req.headers.testuser);
         next();
       }
     : require('../middlewares/auth');

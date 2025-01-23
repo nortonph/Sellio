@@ -152,10 +152,8 @@ const updateItem = async (req, res) => {
 };
 
 const uploadMedia = async (req, res) => {
-  console.log('------------------')
-  console.log(req)
   try {
-    console.log(req.file);
+    console.log(req);
     if (!req.files || !req.files.media) {
       return res.status(400).send({ message: 'No file uploaded' });
     }
