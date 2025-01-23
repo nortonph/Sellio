@@ -32,12 +32,48 @@ const postOneMessage = async (req, res) => {
 
     const savedMessage = await newMessage.save();
 
-    res.status(201).send(savedMessage);
+    const response = await respondToMessage(savedMessage);
+
+    res.status(201).send(response);
   } catch (error) {
     console.error('Cant save message', error);
     res.send(500).send({message: error})
   }
 };
+
+const respondToMessage = async (message) => {
+  //TODO Adjust this function for proper response
+  try {
+    const response = await fetch('https://cw-api-1.onrender.com/quotes/random', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+    
+    if(!response.ok) {
+      throw new Error('No response from https://cw-api-1.onrender.com/quotes/random');
+    }
+
+    const data = await response.json();
+    
+    if (!data || !data.result.text) {
+      throw new Error('wrong respone from API');
+    }
+    
+    const responseMessage = new Message({
+      content: data.result.text,
+      sender: '35883955-7b19-4840-a600-1498ef5e15cb',  //! Needs to be handled properly each conversation should have its own uuid
+      recipient: message.sender,                       //! Sender id is the userId working on the frontend
+      timestamp: new Date(),
+    });
+
+    return responseMessage;
+  } catch (error) {
+    console.error(error);
+    throw new Error('No response from https://cw-api-1.onrender.com/quotes/random');
+  }
+}
 
 module.exports = {
   postOneMessage,
