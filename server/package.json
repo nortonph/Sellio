@@ -1,14 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
+  "name": "sellio_server",
+  "version": "2.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --recursive",
-    "seed": "node seed/importFromJson.js",
-    "seed_test": "NODE_ENV=test node seed/importFromJson.js",
     "start": "node index.js",
     "start_test": "NODE_ENV=test node index.js",
-    "start_test_all": "NODE_ENV=test node index.js & cd ../client && NODE_ENV=test npx vite & wait"
+    "start_test_all": "NODE_ENV=test node index.js & cd ../client && NODE_ENV=test npx vite & wait",
+    "seed": "node seed/importFromJson.js",
+    "seed_test": "NODE_ENV=test node seed/importFromJson.js",
+    "test": "NODE_ENV=test mocha --recursive"
   },
   "author": "",
   "license": "ISC",
