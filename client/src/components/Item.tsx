@@ -3,9 +3,10 @@ import { Item as ItemType } from '../types/Item';
 
 interface ItemProps {
   item: ItemType;
+  delay: number;
 }
 
-function Item({ item }: ItemProps) {
+function Item({ item, delay }: ItemProps) {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -14,7 +15,7 @@ function Item({ item }: ItemProps) {
   const url = 'http://localhost:3001'
 
   return (
-    <div className="flex flex-col items-center border border-gray-200 rounded-lg shadow-md p-4">
+    <div className="flex flex-col items-center border border-gray-200 rounded-lg shadow-md p-4" data-aos="fade-up" data-aos-delay={`${delay}`}>
       <img
         src={`${url}/${item.coverPhoto}`}
         alt={item.title}

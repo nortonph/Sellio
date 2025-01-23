@@ -103,7 +103,7 @@ function Header() {
 
             {showLoginForm && (
               <div onClick={toggleLoginForm} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" style={{ zIndex: 1000 }}>
-                <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded shadow-md w-full max-w-sm relative">
+                <div onClick={(e) => e.stopPropagation()} className="bg-white p-6 rounded shadow-md w-full max-w-sm relative" data-aos='fade-up' data-aos-duration="300">
                   <button className="absolute top-2 right-2 text-gray-500" onClick={toggleLoginForm}>
                     ×
                   </button>

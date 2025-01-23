@@ -13,7 +13,7 @@ function NewestSlider({recentItems} : SliderProps) {
 
                 {recentItems?.length > 0 ? (
                   recentItems.map((item, index) => (
-                    <div key={index} className="flex flex-col items-center border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer hover:border-gray-300">
+                    <div key={index} className="flex flex-col items-center border border-gray-200 rounded-lg shadow-md p-4 cursor-pointer hover:border-gray-300" data-aos="fade-up" data-aos-delay={`${index * 100}`}>
                     <img
                       src={`${url}/${item.coverPhoto}`}
                       alt=""

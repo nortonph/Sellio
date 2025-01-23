@@ -8,6 +8,9 @@ import Pagination from '../components/Pagination';
 import Slider from '../components/Slider';
 import type { Item as ItemType } from '../types/Item';
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function Home() {
   const [items, setItems] = useState<ItemType[]>([]);
   const [banners, setBanners] = useState<ItemType[]>([]);
@@ -15,12 +18,18 @@ function Home() {
   const [pageData, setPageData] = useState({
     currentPage: 1,
     totalPages: 0,
-    itemsPerPage: 12,
+    itemsPerPage: 21,
   });
 
 
   useEffect(() => {
     document.title = "Sellio";
+
+    AOS.init({
+      disable: "phone",
+      duration: 700,
+      easing: "ease-out-cubic",
+    });
 
     let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
     if (!link) {
@@ -96,17 +105,17 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="flex flex-col gap-3 px-20 py-5">
+      <div className="flex flex-col gap-3 px-20 py-5" data-aos="fade">
         <Slider banners={banners} />
         <Filters />
         
-        <h1 className="font-bold mt-10">Second-hand Stuff for You!</h1>
+        <h1 className="font-bold mt-10" data-aos="fade">Second-hand Stuff for You!</h1>
 
         <section className="list-of-items grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4">
 
           {items && items.length > 0 ? (
-              items.map((item) => (
-                <Item key={item?._id} item={item} />
+              items.map((item, index) => (
+                <Item key={item?._id} item={item} delay={index * 100}/>
               ))
             ) : (
               <p>No items available.</p>

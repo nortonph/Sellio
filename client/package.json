@@ -12,6 +12,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
