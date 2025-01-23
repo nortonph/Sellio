@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 type Props = {}
@@ -43,39 +44,38 @@ const Faq = (props: Props) => {
   };
 
   return (
-    <div className="h-screen">
-      <Header />
-      <div className="flex justify-center my-10">
-        <div className="space-y-5 w-full max-w-2xl">
-          {questions.map((element, index) => (
-            <div key={index} className="cursor-pointer">
-              <div
-                onClick={() => handleSelected(index)}
-                className="p-5 bg-slate-300 rounded-lg flex justify-between items-center"
-              >
-                <span>{element.question}</span>
-                <div className="pl-5">
-                  {activeIndex === index ? <ChevronUp /> : <ChevronDown />}
+    <div>
+      <div className="h-screen">
+        <Header />
+        <div className="flex justify-center my-10">
+          <div className="space-y-5 w-full max-w-2xl">
+            {questions.map((element, index) => (
+              <div key={index} className="cursor-pointer">
+                <div
+                  onClick={() => handleSelected(index)}
+                  className="p-5 bg-slate-300 rounded-lg flex justify-between items-center"
+                >
+                  <span>{element.question}</span>
+                  <div className="pl-5">
+                    {activeIndex === index ? <ChevronUp /> : <ChevronDown />}
+                  </div>
+                </div>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? 'max-h-screen' : 'max-h-0'
+                    }`}
+                >
+                  <div className="p-5 bg-slate-200 rounded-lg mt-2">
+                    {element.answer}
+                  </div>
                 </div>
               </div>
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  activeIndex === index ? 'max-h-screen' : 'max-h-0'
-                }`}
-              >
-                <div className="p-5 bg-slate-200 rounded-lg mt-2">
-                  {element.answer}
-                </div>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <div className="flex flex-row items-center justify-center m-10 text-green-950">
-        <p>©2025 sellio.com, Inc.</p>
-      </div>
+      <Footer />
     </div>
   )
 }
 
-export default Faq
+export default Faq;
