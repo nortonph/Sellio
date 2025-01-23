@@ -40,6 +40,24 @@ describe('TESTING public route', () => {
       }
       expect(response.body.totalItems).to.equal(22);
     });
+    it('all items should have the required properties', async function () {
+      const response = await request.get('/');
+      expect(response.status).to.equal(200);
+      for (item of response.body.items) {
+        expect(item).to.have.property('_id');
+        expect(item).to.have.property('title');
+        expect(item).to.have.property('description');
+        expect(item).to.have.property('price');
+        expect(item).to.have.property('userId');
+        expect(item).to.have.property('datePosted');
+      }
+    });
+  });
+  describe('GET /this/should/not/exist', () => {
+    it('get request to non-existent route should return a 404 error', async function () {
+      const response = await request.get('/this/should/not/exist');
+      expect(response.status).to.equal(404);
+    });
   });
   describe('GET /banners   => itemController.getBannerItems', () => {
     it('gets a list of 5 items with "isBanner":true', async function () {
