@@ -1,6 +1,6 @@
 import { Item as ItemType } from '../types/Item';
 interface SliderProps {
-  banners: ItemType[]; 
+  recentItems: ItemType[]; 
 }
 
 function NewestSlider({recentItems} : SliderProps) {

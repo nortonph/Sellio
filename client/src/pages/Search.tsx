@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Item from '../components/Item';
 import { Item as ItemType } from '../types/Item';
 
@@ -29,7 +29,7 @@ function SinglePage() {
       };
   
       fetchItems();
-    }, []);
+    }, [searchQuery]);
 
   return (
     <div>

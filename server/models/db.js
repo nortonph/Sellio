@@ -1,14 +1,18 @@
+const envFilename =
+  process.env.NODE_ENV === 'test'
+    ? '.env.test.local'
+    : '.env.development.local';
+require('dotenv').config({ path: envFilename });
+
 const mongoose = require('mongoose');
-const DB_PORT = process.env.DB_PORT || 27017;
-const DB_NAME = process.env.DB_NAME || 'sellio';
+const dbconnect = require('../config/dbconnect');
+
 
 const connectDB = async () => {
+  const URI = dbconnect();
   try {
-    await mongoose.connect(`mongodb://localhost:${DB_PORT}/${DB_NAME}`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`Database ${DB_NAME} on port ${DB_PORT} connected successfully!`);
+    await mongoose.connect(URI);
+    console.log(`Database connected successfully on ${URI}`);
   } catch (err) {
     console.error(`Database connection failed: ${err.message}`);
     process.exit(1);

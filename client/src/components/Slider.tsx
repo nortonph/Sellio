@@ -3,6 +3,7 @@ import { A11y, Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Item as ItemType } from '../types/Item';
 
+// FIXME
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -64,7 +65,7 @@ function Slider({banners} : SliderProps) {
       </Swiper>
 
       {/* Add custom CSS to change arrow and pagination colors */}
-      <style jsx>{`
+      <style>{`
         .swiper-button-next,
         .swiper-button-prev {
           color: white; /* Change arrow color to white */

@@ -1,4 +1,4 @@
-const Item = require('../models/item');
+const Item = require('../models/Item');
 const fs = require('fs');
 const path = require('path');
 
@@ -9,7 +9,7 @@ const getItem = async (req, res) => {
     if (!item) {
       return res.status(404).send({ message: 'Item not found' });
     }
-    res.status(200).send(item); 
+    res.status(200).send(item);
   } catch (error) {
     res.status(500).send({ message: 'Error fetching item', error });
   }
@@ -17,25 +17,34 @@ const getItem = async (req, res) => {
 
 const getItems = async (req, res) => {
   try {
-    const { page = 1 } = req.query;
+    const { page = 1, limit = 10 } = req.query;
 
-    const pageNumber = parseInt(page);
-    const limitNumber = 30;
+    const pageNumber = parseInt(page, 10);
+    const limitNumber = parseInt(limit, 10);
 
+    if (
+      isNaN(pageNumber) ||
+      isNaN(limitNumber) ||
+      pageNumber < 1 ||
+      limitNumber < 1
+    ) {
+      return res.status(400).json({ error: 'Invalid pagination parameters' });
+    }
+
+    const offset = (pageNumber - 1) * limitNumber;
     const items = await Item.find()
-      .skip((pageNumber - 1) * limitNumber)
+      .skip(offset)
       .limit(limitNumber);
 
     const totalItems = await Item.countDocuments();
-
     const totalPages = Math.ceil(totalItems / limitNumber);
 
     res.status(200).send({
       currentPage: pageNumber,
-      totalPages,
-      totalItems,
+      totalPages: totalPages,
+      totalItems: totalItems,
       itemsPerPage: limitNumber,
-      items,
+      items: items,
     });
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
@@ -77,7 +86,7 @@ const userItems = async (req, res) => {
     const { userId } = req.params;
 
     const items = await Item.find({userId : userId}).exec();
-  
+
     res.status(200).send(items);
   } catch (error) {
     res.status(500).send({ message: 'Error fetching items', error });
@@ -99,7 +108,7 @@ const getNewestItem = async (req, res) => {
 
 const getBannerItems = async (req, res) => {
   try {
-    
+
     const items = await Item.find({ isBanner: true });
 
     res.status(200).send(items);
@@ -111,7 +120,7 @@ const getBannerItems = async (req, res) => {
 
 const addItem = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user._id;
 
     if (!userId) {
       return res.status(400).send({ message: 'User ID is required' });
@@ -144,7 +153,7 @@ const updateItem = async (req, res) => {
 
 const uploadMedia = async (req, res) => {
   try {
-    console.log(req.file);
+    console.log(req);
     if (!req.files || !req.files.media) {
       return res.status(400).send({ message: 'No file uploaded' });
     }
