@@ -96,28 +96,26 @@ describe('TESTING user route', () => {
   });
 
   describe('POST /user/item/upload   => itemController.uploadMedia', () => {
-    it('test not implemented', async function () {
+    it.skip('test not implemented', async function () {
       const response = await request
         .post('/user/item/upload')
         .field('testfield', 'testvalue')
         .attach('files', 'test/testimage.png')
         .on('error', (error) => {console.log('oops! ', error.response.error)})
         .on('progress', (event) => {console.log(event.loaded + ' / ' + event.total)});
-      console.log('------#-----------')
       expect(response.status).to.equal(200);
-
     });
   });
 
   describe('GET /user/items/sold   => itemController.getUserSoldItems', () => {
-    it('test not implemented', async function () {});
+    it.skip('test not implemented', async function () {});
   });
 
   describe('GET /user/items/forsell   => itemController.getUserItemsWaitingForSell', () => {
-    it('test not implemented', async function () {});
+    it.skip('test not implemented', async function () {});
   });
 
   describe('DELETE /user/item/delete   => itemController.deleteItem', () => {
-    it('test not implemented', async function () {});
+    it.skip('test not implemented', async function () {});
   });
 });

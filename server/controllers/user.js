@@ -215,7 +215,7 @@ const seller = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id).select('-password');
     res.status(200).send(user);
-  } catch {
+  } catch (error) {
     res.status(404).send({ error, message: 'Resource not found' });
   }
 };

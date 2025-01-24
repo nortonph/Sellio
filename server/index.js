@@ -17,6 +17,7 @@ const adminRouter = require('./routers/admin.js');
 const publicRouter = require('./routers/public.js');
 const authRouter = require('./routers/auth.js');
 const userRouter = require('./routers/user.js');
+const messageRouter = require('./routers/message.js');
 
 app.use(
   '/uploads/images',
@@ -36,6 +37,7 @@ app.use(adminRouter);
 app.use(publicRouter);
 app.use(authRouter);
 app.use(userRouter);
+app.use(messageRouter);
 
 const generalLimiter = rateLimit({
   windowMs: 60 * 60 * 1000,

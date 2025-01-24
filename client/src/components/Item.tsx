@@ -3,9 +3,10 @@ import { Item as ItemType } from '../types/Item';
 
 interface ItemProps {
   item: ItemType;
+  delay: number;
 }
 
-function Item({ item }: ItemProps) {
+function Item({ item, delay }: ItemProps) {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
@@ -14,17 +15,28 @@ function Item({ item }: ItemProps) {
   const url = 'http://localhost:3001'
 
   return (
-    <div className="flex flex-col items-center border border-gray-200 rounded-lg shadow-md p-4">
+    <div
+      className="flex flex-col border border-gray-200 rounded-lg shadow-md p-4 h-full"
+      data-aos="fade-up"
+      data-aos-delay={`${delay}`}
+    >
+      {/* Picture */}
       <img
         src={`${url}/${item.coverPhoto}`}
         alt={item.title}
-        className="max-w-36 object-cover mb-2"
+        className="w-full h-36 object-cover mb-2 rounded-md"
       />
-      <h2 className="title font-semibold text-gray-700 text-lg">{item.title}</h2>
-      <p className="text-sm text-gray-500 mb-2">
+
+      {/* Title */}
+      <h2 className="font-semibold text-gray-700 text-lg">{item.title}</h2>
+
+      {/* Location */}
+      <p className="text-sm text-gray-500 flex-grow mb-2">
         {item.city && item.country ? `${item.city}, ${item.country}` : 'Location not available'}
       </p>
-      <div className="flex justify-between items-center w-full">
+
+      {/* Price and Button */}
+      <div className="flex justify-between items-center mt-auto">
         <span className="font-bold text-gray-800">${item.price}</span>
         <button
           onClick={handleButtonClick}
